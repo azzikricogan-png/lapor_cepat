@@ -132,7 +132,7 @@
             word-break: break-all;
         }
         section code {
-            display: block;
+         git    display: block;
         }
         section a {
             color: rgba(221, 72, 20, 1);
