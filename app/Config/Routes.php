@@ -2,6 +2,7 @@
 
 use CodeIgniter\Router\RouteCollection;
 
+<<<<<<< HEAD
 /**
  * @var RouteCollection $routes
  */
@@ -77,3 +78,21 @@ $routes->get('/notifikasi', 'Notifikasi::index');
 $routes->get('/notifikasi/baca/(:num)', 'Notifikasi::baca/$1');
 
 $routes->get('/notifikasi/hapus/(:num)', 'Notifikasi::delete/$1');
+=======
+/** @var RouteCollection $routes */
+
+// 🔥 Halaman utama (FIRST PAGE)
+$routes->get('/', 'Awalan::index');
+
+# Awalan
+$routes->get('/awalan', 'Awalan::index');
+
+# Auth
+$routes->get('/login', 'Auth::login');
+$routes->get('/register', 'Auth::register');
+$routes->get('auth/google', 'Auth::googleLogin');
+$routes->get('auth/google/callback', 'Auth::googleCallback');
+
+# Laporaa
+$routes->get('/laporan', 'Laporan::index');
+>>>>>>> ea85b42f80c395bcfef9a86200c8750b6ced62b6
