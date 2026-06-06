@@ -134,7 +134,7 @@ body{
 
 .register-btn{
     margin-top:25px;
-    background: <div class="login-box">;
+    background: #0400ffd8;
     border:none;
     padding:15px 60px;
     border-radius:30px;

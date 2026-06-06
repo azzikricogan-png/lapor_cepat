@@ -3,209 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header Lapor Cepat</title>
-</head>
-<body>
+    <title><?= $title ?? 'Lapor Cepat' ?></title>
 
-<header class="header">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <div class="logo">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Logo">
-        <h2>Lapor Cepat</h2>
-    </div>
+    <style>
 
-    <nav>
-        <ul class="nav-menu">
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Buat Laporan</a></li>
-            <li><a href="#">Status Laporan</a></li>
-            <li><a href="#">Tentang</a></li>
-            <li><a href="#">Kontak</a></li>
-        </ul>
-    </nav>
-
-    <div class="header-right">
-        <a href="#" class="btn-login">Tentang Kami</a>
-    </div>
-
-</header>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
-body{
-    background:#f8fafc;
-    padding-top:80px;
-}
-
-/* HEADER */
-
-.header{
-    width:100%;
-    height:80px;
-    display:flex;
-    align-items:center;
-    padding:0 60px;
-    position:fixed;
+.navbar{
+    position:sticky;
     top:0;
-    left:0;
-    z-index:1000;
+    z-index:9999;
 
-    background:transparent;
+    height:90px;
+    padding:0 6%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#002b78;
+
+    border-top:2px solid rgba(255,255,255,.8);
+    border-bottom:2px solid rgba(255,255,255,.8);
+
+    border-radius:20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+
     transition:all .3s ease;
 }
 
-.header.scrolled{
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(10px);
-    box-shadow:0 2px 15px rgba(0,0,0,.08);
-}
-
-.header.hide{
-    transform:translateY(-100%);
-}
-
-.header-right{
-    margin-left:20px;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.logo img{
-    width:40px;
-    height:40px;
-}
-
-.logo h2{
-    color:#6D28D9;
-    font-size:24px;
-}
-
-nav{
-    margin-left:auto;
-}
-
-
-.nav-menu{
-    display:flex;
-    list-style:none;
-    gap:20px;
-}
-
-.nav-menu a{
-    text-decoration:none;
-    color:#333;
-    font-weight:500;
-    transition:.3s;
-}
-
-.nav-menu a:hover{
-    color:#6D28D9;
-}
-
-.btn-login{
-    text-decoration:none;
-    background:#6D28D9;
-    color:white;
-    padding:12px 25px;
-    border-radius:8px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn-login:hover{
-    background:#5B21B6;
-}
-
-/* HERO DEMO */
-
-.hero{
-    height:500px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.hero h1{
-    font-size:50px;
-    margin-bottom:15px;
-    color:#1e293b;
-}
-
-.hero p{
-    font-size:18px;
-    color:#64748b;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-    .header{
-        padding:0 20px;
+    .logo{
+        display:flex;
+        align-items:center;
+        gap:12px;
     }
 
-    .nav-menu{
-        display:none;
+    .logo img{
+        width:60px;
     }
 
-    .logo h2{
-        font-size:20px;
+    .logo-title{
+        font-size:24px;
+        font-weight:700;
+        display:flex;
+        gap:2px;
+    }
+
+    .putih{
+        color:#fff;
+    }
+
+    .orans{
+        color:#ff9735;
+    }
+
+    .logo-sub{
+        color:#fff;
+        letter-spacing:4px;
+        font-size:12px;
+    }
+
+    .menu{
+        display:flex;
+        margin-left:auto;
+
+        gap:17px;
     }
 
     .btn-login{
-        padding:10px 18px;
+    margin-left:19px;
     }
 
-    .hero h1{
-        font-size:32px;
+    .menu a{
+        color:white;
+        text-decoration:none;
+        font-size:17px;
+        font-weight:500;
     }
 
-}
-
-</style>
-
-<script>
-
-let lastScroll = 0;
-const header = document.querySelector('.header');
-
-window.addEventListener('scroll', () => {
-
-    const currentScroll = window.pageYOffset;
-
-    // Background muncul saat scroll
-    if(currentScroll > 10){
-        header.classList.add('scrolled');
-    }else{
-        header.classList.remove('scrolled');
+    .btn-login{
+        background:#ff9735;
+        color:white;
+        text-decoration:none;
+        padding:9px 20px;
+        border-radius:12px;
+        font-weight:600;
+        
     }
 
-    // Hilang saat scroll ke bawah
-    if(currentScroll > lastScroll && currentScroll > 100){
-        header.classList.add('hide');
-    }
-    // Muncul saat scroll ke atas
-    else{
-        header.classList.remove('hide');
+    @media(max-width:992px){
+        .menu{
+            display:none;
+        }
     }
 
-    lastScroll = currentScroll;
+    </style>
+</head>
 
-});
+<body>
 
-</script>
-</body>
-</html>
+<nav class="navbar">
+
+    <div class="logo">
+
+        <img src="<?= base_url('img/logo.png') ?>">
+
+        <div class="logo-text">
+
+            <div class="logo-title">
+                <span class="putih">Lapor</span>
+                <span class="orans">Cepat</span>
+            </div>
+
+            <div class="logo-sub">
+                KOTA PALU
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="menu">
+
+        <a href="<?= base_url('/') ?>">Beranda</a>
+        <a href="<?= base_url('laporan') ?>">Laporan</a>
+        <a href="<?= base_url('informasi') ?>">Informasi</a>
+        <a href="<?= base_url('kontak') ?>">Kontak</a>
+
+    </div>
+
+    <a href="<?= base_url('auth/login') ?>" class="btn-login">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        Masuk
+    </a>
+
+</nav>

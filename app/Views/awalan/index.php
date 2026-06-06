@@ -1,3 +1,4 @@
+<?= $this->include('layout/header') ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,43 +15,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <section class="hero">
 
-    <nav class="navbar">
 
-        <div class="logo">
-
-            <img src="<?= base_url('img/logo.png') ?>">
-
-            <div class="logo-text">
-
-                <div class="logo-title">
-                    <span class="putih">Lapor</span>
-                    <span class="orans">Cepat</span>
-                </div>
-
-                <div class="logo-sub">
-                    KOTA PALU
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="menu">
-
-            <a href="#">Beranda</a>
-            <a href="#">Laporan</a>
-            <a href="#">Cek Status</a>
-            <a href="#">Informasi</a>
-            <a href="#">Kontak</a>
-
-        </div>
-
-        <a href="#" class="btn-login">
-            <i class="fa-solid fa-right-to-bracket"></i>
-            Masuk
-        </a>
-
-    </nav>
 
     <div class="hero-content">
 
@@ -77,11 +42,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 Buat Laporan
             </a>
 
-            <a href="#" class="btn-secondary">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                Cek Status
-            </a>
-
+        
         </div>
 
     </div>
@@ -367,88 +328,13 @@ body{
 
 }
 
-/* ========= NAVBAR ========= */
-
-.navbar{
-
-    height:90px;
-
-    padding:0 6%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.logo img{
-    width:60px;
-}
-
-.logo-title{
-    font-size:24px;
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:2px;
-}
-
-.putih{
-    color: #ffffff;
-}
-
-.orans{
-    color: #ff9735;
-}
-
-.logo-sub{
-    color: white;
-    letter-spacing:4px;
-    font-size:12px;
-}
-
-.menu{
-    display:flex;
-    gap:40px;
-}
-
-.menu a{
-    color:white;
-    text-decoration:none;
-    font-size:17px;
-    font-weight:500;
-}
-
-.menu a:hover{
-    color: #a4a19e;
-}
-
-.btn-login{
-
-    background:#ff9735;
-    color:white;
-
-    text-decoration:none;
-
-    padding:14px 28px;
-
-    border-radius:12px;
-
-    font-weight:600;
-}
 
 /* ========= HERO CONTENT ========= */
 
 .hero-content{
 
     margin-left:6%;
-    margin-top:70px;
+    margin-top:0px;
 
     max-width:650px;
 }

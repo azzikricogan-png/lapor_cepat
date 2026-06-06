@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="input-group">
-                    <input type="text" name="no_hp" placeholder="No HP (opsional)">
+                    <input type="password" name="password" placeholder="Konfirmasi Password" required>
                 </div>
 
                 <button type="submit" class="register-btn">
@@ -185,7 +185,7 @@ body{
     display:flex;
     align-items:center;
     gap:12px;
-    margin:auto;
+    margin: auto;
     cursor:pointer;
     font-weight:600;
 }
