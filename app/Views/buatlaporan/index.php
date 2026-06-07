@@ -26,12 +26,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         <h2>Buat Laporan</h2>
 
-        <form>
+        <form action="<?= base_url('buat_laporan/simpan') ?>" method="post" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label>Judul Laporan<span>*</span></label>
 
                 <textarea
+                name="judul"
                 rows="1"
                 placeholder="Ketik Isi Laporan Anda"></textarea>
             </div>
@@ -40,6 +41,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 <label>Isi Laporan <span>*</span></label>
 
                 <textarea
+                name="deskripsi"
                 rows="6"
                 placeholder="Ketik Isi Laporan Anda"></textarea>
             </div>
@@ -58,7 +60,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <div class="form-group">
                 <label>Lokasi Kejadian <span>*</span></label>
 
-                <select>
+                <select name="lokasi">
                     <option>Pilih Lokasi Kejadian</option>
                     <option>Palu</option>
                     <option>Sigi</option>
@@ -69,11 +71,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <div class="form-group">
                 <label>Instansi Tujuan <span>*</span></label>
 
-                <select>
-                    <option>Pilih Instansi Tujuan</option>
-                    <option>Dinas PU</option>
-                    <option>Dinas Pendidikan</option>
-                    <option>Dinas Kesehatan</option>
+                <select name="id_layanan">
+                    <option value="">Pilih Instansi</option>
+                    <option value="1">Dinas PU</option>
+                    <option value="2">Dinas Pendidikan</option>
+                    <option value="3">Dinas Kesehatan</option>
                 </select>
             </div>
 
@@ -97,6 +99,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
                 <input
                 type="file"
+                name="foto"
                 id="lampiran"
                 hidden>
 
@@ -105,18 +108,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <div class="check-group">
 
                 <label>
-                    <input type="checkbox">
+                    <input type="checkbox" name="anonim" value="1">
                     Anonim
                 </label>
 
                 <label>
-                    <input type="checkbox">
+                    <input type="checkbox" name="rahasia" value="1">
                     Rahasia
                 </label>
 
             </div>
 
-            <button class="btn-submit">
+            <button type="submit" class="btn-submit">
                 Lapor
             </button>
 
