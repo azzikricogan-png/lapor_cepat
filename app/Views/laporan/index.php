@@ -1,497 +1,269 @@
-<?= $this->include('layout/header') ?>
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buat Laporan</title>
+<title>Cek Status Laporan</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-</head>
-<body>
-
-<div class="bg-left"></div>
-<div class="bg-right"></div>
-<div class="bg-center"></div>
-
-<div class="hero-banner">
-    <h1>Layanan Pengaduan Untuk Masyarakat Palu</h1>
-    <p>
-        Sampaikan laporan Anda langsung kepada instansi pemerintah berwenang.
-    </p>
-</div>
-
-<div class="container">
-
-    <div class="form-card">
-
-        <h2>Buat Laporan</h2>
-
-        <form>
-
-            <div class="form-group">
-                <label>Judul Laporan<span>*</span></label>
-
-                <textarea
-                rows="1"
-                placeholder="Ketik Isi Laporan Anda"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label>Isi Laporan <span>*</span></label>
-
-                <textarea
-                rows="6"
-                placeholder="Ketik Isi Laporan Anda"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label>Tanggal Kejadian <span>*</span></label>
-
-                <input
-                type="date">
-            </div>
-
-            <div class="form-group">
-                <label>Lokasi Kejadian <span>*</span></label>
-
-                <select>
-                    <option>Pilih Lokasi Kejadian</option>
-                    <option>Palu</option>
-                    <option>Sigi</option>
-                    <option>Donggala</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Instansi Tujuan <span>*</span></label>
-
-                <select>
-                    <option>Pilih Instansi Tujuan</option>
-                    <option>Dinas PU</option>
-                    <option>Dinas Pendidikan</option>
-                    <option>Dinas Kesehatan</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Kategori Laporan</label>
-
-                <select>
-                    <option>Pilih Kategori Laporan</option>
-                    <option>Jalan Rusak</option>
-                    <option>Sampah</option>
-                    <option>Lampu Jalan</option>
-                </select>
-            </div>
-
-            <div class="upload-area">
-
-                <label for="lampiran" class="upload-btn">
-                    <i class="fa-solid fa-link"></i>
-                    Upload Lampiran
-                </label>
-
-                <input
-                type="file"
-                id="lampiran"
-                hidden>
-
-            </div>
-
-            <div class="check-group">
-
-                <label>
-                    <input type="checkbox">
-                    Anonim
-                </label>
-
-                <label>
-                    <input type="checkbox">
-                    Rahasia
-                </label>
-
-            </div>
-
-            <button class="btn-submit">
-                Lapor
-            </button>
-
-        </form>
-
-    </div>
-
-</div>
-
-<div class="progress-laporan">
-
-    <div class="progress-line">
-        <div class="progress-active"></div>
-    </div>
-
-    <div class="step active">
-        <div class="icon">
-            <i class="fa-solid fa-pen-to-square"></i>
-        </div>
-        <h4>Tulis Laporan</h4>
-        <p>Laporkan keluhan atau aspirasi anda dengan jelas dan lengkap</p>
-    </div>
-
-    <div class="step">
-        <div class="icon">
-            <i class="fa-solid fa-share"></i>
-        </div>
-        <h4>Proses Verifikasi</h4>
-        <p>Dalam 3 hari, laporan Anda akan diverifikasi dan diteruskan kepada instansi berwenang</p>
-    </div>
-
-    <div class="step">
-        <div class="icon">
-            <i class="fa-regular fa-file-lines"></i>
-        </div>
-        <h4>Proses Tindak Lanjut</h4>
-        <p>Dalam 5 hari, instansi akan menindaklanjuti dan membalas laporan Anda</p>
-    </div>
-
-    <div class="step">
-        <div class="icon">
-            <i class="fa-regular fa-message"></i>
-        </div>
-        <h4>Beri Tanggapan</h4>
-        <p>Anda dapat menanggapi kembali balasan yang diberikan oleh instansi dalam waktu 10 hari</p>
-    </div>
-
-    <div class="step">
-        <div class="icon">
-            <i class="fa-solid fa-check"></i>
-        </div>
-        <h4>Selesai</h4>
-        <p>Laporan Anda akan terus ditindaklanjuti hingga terselesaikan</p>
-    </div>
-
-</div>
-
-<a href="#" class="scroll-top">
-    <i class="fa-solid fa-arrow-up"></i>
-</a>
-
 <style>
 
-*{
+/* RESET */
+body{
     margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
 }
 
-.hero-banner{
-    width:100%;
+/* WRAPPER */
+.status-section{
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* HEADER */
+.status-header{
     text-align:center;
-    padding:30px 20px;
-    margin-bottom:20px;
+    margin-bottom:25px;
 }
 
-.hero-banner h1{
-    font-size:40px;
-    font-weight:700;
-    color:#333;
+.status-header h1{
+    color:#163b79;
+    font-size:36px;
     margin-bottom:10px;
 }
 
-.hero-banner p{
-    font-size:20px;
+.status-header p{
     color:#666;
-    font-weight:500;
+    font-size:15px;
 }
 
-
-
-/* BACKGROUND */
-
-.bg-left{
-    position:fixed;
-    left:-150px;
-    top:-100px;
-    width:450px;
-    height:450px;
-    background:linear-gradient(
-        135deg,
-        #6D28D9,
-        #8B5CF6
-    );
-    border-radius:50%;
-    filter:blur(80px);
-    opacity:.25;
-    z-index:-1;
-}
-
-.bg-right{
-    position:fixed;
-    right:-150px;
-    bottom:-100px;
-    width:450px;
-    height:450px;
-    background:linear-gradient(
-        135deg,
-        #7C3AED,
-        #A78BFA
-    );
-    border-radius:50%;
-    filter:blur(80px);
-    opacity:.25;
-    z-index:-1;
-}
-
-.bg-center{
-    position:fixed;
-    top:40%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:500px;
-    height:500px;
-    background:#C4B5FD;
-    border-radius:50%;
-    filter:blur(120px);
-    opacity:.15;
-    z-index:-1;
-}
-
-body{
-    background:#F8FAFC;
-    min-height:100vh;
-    overflow-x:hidden;
-}
-
-.container{
+/* SEARCH */
+.status-search-box{
     display:flex;
-    justify-content:center;
-    padding:20px;
-}
-
-.form-card{
-    width:100%;
-    max-width:900px;
-    background:#fff;
-    border-radius:14px;
-    padding:25px 30px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-}
-
-.form-card h2{
-    margin-bottom:20px;
-    color:#333;
-    font-size:22px;
-}
-
-.form-group{
-    margin-bottom:18px;
-}
-
-.form-group label{
-    display:block;
-    margin-bottom:8px;
-    font-weight:600;
-    color:#333;
-}
-
-.form-group span{
-    color:red;
-}
-
-textarea,
-input,
-select{
-    width:100%;
-    border:1px solid #d9d9d9;
-    border-radius:8px;
-    padding:10px 12px;
-    font-size:14px;
-    outline:none;
-}
-
-textarea{
-    resize:none;
-}
-
-.upload-area{
-    margin-top:10px;
-}
-
-.upload-btn{
-    display:inline-flex;
-    align-items:center;
     gap:10px;
-    padding:12px 20px;
-    border:1px solid red;
-    border-radius:6px;
-    color:red;
+    justify-content:center;
+    margin-bottom:35px;
+}
+
+.status-search-box input{
+    width:60%;
+    padding:12px 15px;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+.status-search-box button{
+    background:#ff5e00;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:10px;
     cursor:pointer;
 }
 
-.check-group{
+/* CARD */
+.result-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* TOP */
+.result-top{
     display:flex;
-    gap:20px;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* BADGE STATUS */
+.status-badge{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    color:white;
+    font-weight:600;
+}
+
+/* STATUS COLOR */
+.proses{ background:#f39c12; }
+.verifikasi{ background:#3498db; }
+.selesai{ background:#27ae60; }
+
+/* PROGRESS */
+.progress-wrapper{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
     margin:25px 0;
 }
 
-.check-group label{
-    display:flex;
-    align-items:center;
-    gap:8px;
+.progress-step{
+    text-align:center;
+    flex:1;
+    color:#aaa;
 }
 
-.check-group input{
-    width:18px;
-    height:18px;
+.progress-step i{
+    width:40px;
+    height:40px;
+    line-height:40px;
+    border-radius:50%;
+    background:#eee;
+    color:#999;
+    display:inline-block;
+    margin-bottom:8px;
 }
 
-.btn-submit{
-    width:100%;
-    height:55px;
-    border:none;
-    border-radius:6px;
-    background:#ef9a9a;
+/* DONE */
+.done i{
+    background:#27ae60;
     color:white;
-    font-size:18px;
-    font-weight:600;
-    cursor:pointer;
 }
 
-.btn-submit:hover{
-    background:#e57373;
+/* ACTIVE */
+.active i{
+    background:#2f80ed;
+    color:white;
 }
 
+/* LINE */
+.line{
+    height:3px;
+    flex:1;
+    background:#eee;
+}
 
-.progress-laporan{
-    width:100%;
-    max-width:1100px;
-    margin:40px auto;
-    padding:20px 10px;
-    position:relative;
+.line.done{ background:#27ae60; }
+.line.active{ background:#2f80ed; }
 
-    display:flex;
-    justify-content:space-between;
+/* INFO */
+.info-box{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.info-box div{
+    background:#f9fbff;
+    padding:12px;
+    border-radius:10px;
     text-align:center;
 }
 
-.progress-line{
-    position:absolute;
-    top:45px;
-    left:110px;
-    right:110px;
-    height:3px;
-    background:#d9d9d9;
-    z-index:1;
-}
-
-.progress-active{
-    width:25%;
-    height:100%;
-    background:linear-gradient(
-        90deg,
-        #ff512f,
-        #dd2476,
-        #7b2ff7
-    );
-}
-
-.step{
-    width:180px;
-    position:relative;
-    z-index:2;
-}
-
-.icon{
-    width:48px;
-    height:48px;
-    margin:auto;
-
-    border-radius:50%;
-    background:#cfcfcf;
-    color:#fff;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:18px;
-}
-
-.step.active .icon{
-    background:linear-gradient(
-        135deg,
-        #ff512f,
-        #dd2476
-    );
-
-    box-shadow:0 5px 15px rgba(221,36,118,.4);
-}
-
-.step h4{
-    margin-top:18px;
-    margin-bottom:12px;
-    color:#4a4a5e;
-    font-size:16px;
-    font-weight:700;
-}
-
-.step p{
-    color:#6b6b7a;
-    font-size:14px;
-    line-height:1.5;
-}
-
-@media(max-width:900px){
-
-    .progress-laporan{
+/* RESPONSIVE */
+@media(max-width:768px){
+    .status-search-box{
         flex-direction:column;
-        gap:30px;
     }
 
-    .progress-line{
-        display:none;
-    }
-
-    .step{
+    .status-search-box input{
         width:100%;
     }
-}
 
-.scroll-top{
-    position:fixed;
-    right:30px;
-    bottom:30px;
-    width:45px;
-    height:45px;
-    background:red;
-    color:white;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-    box-shadow:0 4px 10px rgba(0,0,0,.2);
-}
-
-@media(max-width:768px){
-
-    .bg-left,
-    .bg-right{
-        display:none;
+    .progress-wrapper{
+        flex-direction:column;
+        gap:15px;
     }
 
-    .form-card{
-        padding:20px;
-    }
+    .line{ display:none; }
 
+    .info-box{
+        grid-template-columns:1fr;
+    }
 }
 
 </style>
+</head>
+
+<body>
+
+<section class="status-section">
+
+    <!-- HEADER -->
+    <div class="status-header">
+        <h1>Cek Status Laporan</h1>
+        <p>Masukkan kode laporan untuk melihat progres</p>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="status-search-box">
+        <input type="text" placeholder="Masukkan Kode Laporan">
+        <button><i class="fa fa-search"></i> Cek</button>
+    </div>
+
+    <!-- CARD -->
+    <div class="result-card">
+
+        <div class="result-top">
+            <h3>Kode: LP-2026-001</h3>
+
+            <!-- GANTI STATUS DI SINI -->
+            <span class="status-badge proses">
+                <i class="fa-solid fa-spinner"></i> Diproses
+            </span>
+        </div>
+
+        <p>Jalan berlubang di Jl. Moh. Hatta</p>
+
+        <!-- PROGRESS -->
+        <div class="progress-wrapper">
+
+            <div class="progress-step done">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Dikirim</span>
+            </div>
+
+            <div class="line done"></div>
+
+            <div class="progress-step done">
+                <i class="fa-solid fa-check"></i>
+                <span>Verifikasi</span>
+            </div>
+
+            <div class="line active"></div>
+
+            <div class="progress-step active">
+                <i class="fa-solid fa-gear"></i>
+                <span>Diproses</span>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="progress-step">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Selesai</span>
+            </div>
+
+        </div>
+
+        <!-- INFO -->
+        <div class="info-box">
+            <div>
+                <h4>Lokasi</h4>
+                <p>Palu</p>
+            </div>
+
+            <div>
+                <h4>Tanggal</h4>
+                <p>07 Juni 2026</p>
+            </div>
+
+            <div>
+                <h4>Instansi</h4>
+                <p>Dinas PU</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
 
 </body>
 </html>
-
-<?= $this->include('layout/footer') ?>
