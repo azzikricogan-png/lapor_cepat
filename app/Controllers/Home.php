@@ -9,9 +9,16 @@ class Home extends BaseController
         return view('home/index');
     }
 
-     public function profil()
+    public function profil()
     {
-        return view('home/profil');
+    if (!session()->get('logged_in')) {
+        return redirect()->to('/login');
+    }
+
+    return view('home/profil', [
+        'nama'  => session()->get('nama'),
+        'email' => session()->get('email')
+    ]);
     }
 
     public function logout()

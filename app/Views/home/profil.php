@@ -250,8 +250,11 @@ body{
             </div>
 
             <div class="profile-info">
-                <h2>Ridwan</h2>
-                <p><i class="fa fa-envelope"></i> ridwan@gmail.com</p>
+                <h2><?= $nama ?></h2>
+                <p>
+                    <i class="fa fa-envelope"></i>
+                    <?= $email ?>
+                </p>
                 <p><i class="fa fa-user"></i> Masyarakat</p>
 
                 <div class="action-btn">

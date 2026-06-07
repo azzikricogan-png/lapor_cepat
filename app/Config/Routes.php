@@ -6,6 +6,7 @@ use CodeIgniter\Router\RouteCollection;
 
 // 🔥 Halaman utama (FIRST PAGE)
 $routes->get('/', 'Awalan::index');
+$routes->get('/lapor', "Awalan::por");
 
 # Awalan
 $routes->get('/awalan', 'Awalan::index');
