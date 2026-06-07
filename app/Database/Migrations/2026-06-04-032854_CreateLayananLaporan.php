@@ -46,3 +46,4 @@ class CreateLayananLaporan extends Migration
         $this->forge->dropTable('layanan_laporan');
     }
 }
+
