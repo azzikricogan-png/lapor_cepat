@@ -174,6 +174,13 @@
     overflow:hidden;
 }
 
+.profile-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
 
 .dropdown-menu{
     position:absolute;
@@ -268,9 +275,8 @@
     <button type="button" class="profile-btn" onclick="toggleMenu()">
 
         <div class="profile-avatar">
-            <img src="<?= base_url('img/maskot.png') ?>" alt="Profile">
+            <img src="<?= base_url('img/profil.png') ?>" alt="Profile">
         </div>
-
     </button>
 
     <div class="dropdown-menu" id="dropdownMenu">
