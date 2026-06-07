@@ -280,7 +280,7 @@
     </button>
 
     <div class="dropdown-menu" id="dropdownMenu">
-        <a href="<?= base_url('profil') ?>">
+        <a href="<?= base_url('/profil') ?>">
             <i class="fa-solid fa-user"></i> Profil Saya
         </a>
 
