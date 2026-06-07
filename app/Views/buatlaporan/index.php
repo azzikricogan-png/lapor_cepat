@@ -11,9 +11,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </head>
 <body>
 
-<div class="bg-left"></div>
-<div class="bg-right"></div>
-<div class="bg-center"></div>
+
 
 <div class="hero-banner">
     <h1>Layanan Pengaduan Untuk Masyarakat Palu</h1>
@@ -22,7 +20,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </p>
 </div>
 
-<div clasys="container">
+<div class="container">
 
     <div class="form-card">
 
@@ -47,10 +45,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             </div>
 
             <div class="form-group">
-                <label>Tanggal Kejadian <span>*</span></label>
+                <label>Tanggal Kejadian</label>
 
-                <input
-                type="date">
+                <div class="date-wrapper">
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    <input
+                        type="date"
+                        id="tanggal"
+                        max="<?= date('Y-m-d') ?>">
+                </div>
+
+                <small class="date-info">
+                    Pilih tanggal kejadian yang sebenarnya terjadi
+                </small>
             </div>
 
             <div class="form-group">
@@ -195,13 +203,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 .hero-banner h1{
     font-size:40px;
     font-weight:700;
-    color:#ffffff;
+    color:#163b79;
     margin-bottom:10px;
 }
 
 .hero-banner p{
     font-size:20px;
-    color:#cfe3ff;
+    color:#666;
     font-weight:500;
 }
 
@@ -258,12 +266,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 }
 
 body{
-    background: linear-gradient(
-        135deg,
-        #001a4d 0%,
-        #002b78 50%,
-        #003a99 100%
-    );
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
     min-height:100vh;
     overflow-x:hidden;
 }
@@ -277,20 +282,18 @@ body{
 
 .form-card{
     width:100%;
-    max-width:900px;
-    background:rgba(255,255,255,0.08);
-    border-radius:16px;
+    max-width:  900px; /* perbesar dari ukuran default */
+    background:#ffffff;
+    border-radius:18px;
     padding:25px 30px;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.15);
-    color:#fff;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    border:none;
+    color:#333;
 }
 
 .form-card h2{
     margin-bottom:20px;
-    color #ffffff;
+    color :#ffffff;
     font-size:22px;
 }
 
@@ -302,7 +305,7 @@ body{
     display:block;
     margin-bottom:8px;
     font-weight:600;
-    color: #ffffff;
+    color: #163b79;
 }
 
 .form-group span{
@@ -313,6 +316,24 @@ body{
 textarea::placeholder,
 input::placeholder{
     color:#cfe3ff;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background:#fff;
+    color:#333;
+    outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#2f80ed;
 }
 
 .upload-area{
@@ -439,13 +460,13 @@ input::placeholder{
 .step h4{
     margin-top:18px;
     margin-bottom:12px;
-    color:#444444;
+    color:#163b79;
     font-size:16px;
     font-weight:700;
 }
 
 .step p{
-    color:color:#cfe3ff;
+    color:#666;
     font-size:14px;
     line-height:1.5;
 }
