@@ -230,3 +230,5 @@
 }
 </style>
 </section>
+
+<?= $this->include('layout/footer') ?>
