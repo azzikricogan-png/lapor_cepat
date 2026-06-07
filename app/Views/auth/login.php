@@ -27,7 +27,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 Daftar
             </button>
 
-            <img src="https://example.com/maskot.png">
+            <img src="<?= base_url('img/maskot1.png') ?>">
 
         </div>
 
@@ -120,6 +120,7 @@ body{
     flex-direction:column;
     align-items:center;
     padding-top:60px;
+    justify-content:center;
 }
 
 .left-content h1{
@@ -145,7 +146,7 @@ body{
 
 .left-content img{
     width:320px;
-    margin-top:70px;
+    margin-top:00px;
 }
 
 /* PANEL KANAN */
