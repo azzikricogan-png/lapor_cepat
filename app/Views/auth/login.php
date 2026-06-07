@@ -205,7 +205,7 @@ body{
 .btn-login{
     display:inline-block;
     margin-top:10px;
-    padding:12px 32px;
+    padding:12px 40px;
     border:none;
     border-radius:50px;
     cursor:pointer;

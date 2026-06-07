@@ -10,9 +10,20 @@ $routes->get('/', 'Awalan::index');
 # Awalan
 $routes->get('/awalan', 'Awalan::index');
 
+#home
+$routes->get('/home', 'Home::index');
+
+
 # Auth
+#login
 $routes->get('/login', 'Auth::login');
+$routes->post('/login/home', 'auth::index');
+
+
+#register
 $routes->get('/register', 'Auth::register');
+$routes->post('/register/home', 'auth:index');
+
 $routes->get('auth/google', 'Auth::googleLogin');
 $routes->get('auth/google/callback', 'Auth::googleCallback');
 
