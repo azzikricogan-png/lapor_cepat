@@ -9,6 +9,7 @@ $routes->get('/', 'Awalan::index');
 
 # Awalan
 $routes->get('/awalan', 'Awalan::index');
+$routes->post('/awalan/login','Awalan::proses');
 
 # Auth
 $routes->get('/login', 'Auth::login');

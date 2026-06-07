@@ -8,4 +8,7 @@ class Awalan extends BaseController
     {
         return view('awalan/index');
     }
+    public function proses() {
+        return redirect()->to('auth/login');
+    }
 }
