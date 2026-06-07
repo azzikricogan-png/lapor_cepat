@@ -12,6 +12,7 @@ $routes->get('/awalan', 'Awalan::index');
 
 #home
 $routes->get('/home', 'Home::index');
+$routes->post('/home', 'Home::laporan');
 
 
 # Auth

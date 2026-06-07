@@ -44,10 +44,9 @@ class Auth extends BaseController
             return redirect()->to('/home');
         }
 
-        return redirect()
-            ->back()
-            ->withInput()
-            ->with('error', 'Email atau password salah');
+       return redirect()
+        ->to('/login')
+        ->with('error', 'Email atau password salah');
     }
 
     // =========================

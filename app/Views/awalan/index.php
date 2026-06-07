@@ -38,7 +38,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         <div class="hero-btn">
 
-            <a href="#" class="btn-primary">
+            <a href="/buat_laporan" class="btn-primary">
                 <i class="fa-solid fa-file-circle-plus"></i>
                 Buat Laporan
             </a>
