@@ -1,4 +1,5 @@
 <?= $this->include('layout/header') ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -19,7 +20,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <div class="hero-content">
 
-        <h3>
+        <h3 class="welcome-text">
             Selamat Datang di Lapor Cepat
         </h3>
 
@@ -246,49 +247,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 </section>
 
-<footer class="footer">
 
-    <div class="footer-item">
-
-        <i class="fa-solid fa-location-dot"></i>
-
-        <div>
-            <h4>Pemerintah Kota Palu</h4>
-            <p>Bersama Mewujudkan Kota Palu yang Lebih Baik</p>
-        </div>
-
-    </div>
-
-    <div class="footer-item">
-
-        <i class="fa-solid fa-phone"></i>
-
-        <div>
-            <h4>Call Center</h4>
-            <p>0811-4500-200</p>
-        </div>
-
-    </div>
-
-    <div class="footer-item">
-
-        <i class="fa-solid fa-envelope"></i>
-
-        <div>
-            <h4>Email</h4>
-            <p>laporcepat@palu.go.id</p>
-        </div>
-
-    </div>
-
-    <div class="footer-item footer-right">
-
-        <p>© 2025 Lapor Cepat Kota Palu</p>
-        <p>All Rights Reserved.</p>
-
-    </div>
-
-</footer>
 
 <style>
 
@@ -315,12 +274,12 @@ body{
 
     linear-gradient(
         90deg,
-        rgba(0,43,120,.92) 0%,
-        rgba(0,43,120,.82) 45%,
-        rgba(0,43,120,.35) 100%
+        rgba(0, 89, 255, 0.18) 0%,
+        rgba(0, 42, 120, 0.14) 45%,
+        rgba(0, 42, 120, 0) 100%
     ),
 
-    url('<?= base_url('img/bacround.png') ?>');
+    url('<?= base_url('img/palu.png') ?>');
 
     background-size:cover;
     background-position:center;
@@ -332,20 +291,43 @@ body{
 /* ========= HERO CONTENT ========= */
 
 .hero-content{
-
-    margin-left:6%;
-    margin-top:0px;
-
+    margin-left: 5%;
     max-width:650px;
-}
 
-.hero-content h3{
-
-    color:#ff9735;
-
-    font-size:22px;
+    padding-top:60px; /* Turunkan ke bawah */
 
     margin-bottom:15px;
+}
+
+.welcome-text{
+
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+
+    color: #ffffff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    background:rgb(255, 136, 0);
+
+    
+
+    border:1px solid rgba(255,255,255,.2);
+
+    text-shadow:0 2px 10px rgba(0, 0, 0, 0.35);
+
+    margin-bottom:30px;
 }
 
 .hero-content h1{
@@ -362,7 +344,7 @@ body{
 
 .hero-content p{
 
-    color:#eef4ff;
+    color: #eef4ff;
 
     font-size:22px;
 
@@ -384,57 +366,46 @@ body{
 
 .btn-primary{
 
-    background:#ff9735;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:18px 32px;
-
-    border-radius:14px;
-
-    display:flex;
+    display:inline-flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
 
-    font-weight:600;
+    color: #ffffff;
 
-    font-size:18px;
+    text-decoration:none; /* Hilangkan garis bawah */
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    background: #ff5e00;
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    text-shadow:0 2px 10px rgba(0, 0, 0, 0.49)
 }
 
-.btn-secondary{
+.btn-primary:hover{
 
-    border:2px solid rgba(255,255,255,.5);
+    transform:translateY(-1px);
 
-    color:white;
-
-    text-decoration:none;
-
-    padding:18px 32px;
-
-    border-radius:14px;
-
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    backdrop-filter:blur(10px);
+    box-shadow:0 12px 30px rgba(255, 128, 0, 0.5);
 }
 
 
 
-@media(max-width:992px){
 
-    .menu{
-        display:none;
-    }
 
-    .hero-content h1{
-        font-size:50px;
-    }
-
-}
 
 @media(max-width:768px){
 
@@ -468,7 +439,7 @@ body{
     display:grid;
     grid-template-columns:repeat(5,1fr);
 
-    gap:20px;
+    gap:15px;
 }
 
 .card-kategori{
@@ -477,10 +448,10 @@ body{
 
     border-radius:18px;
 
-    padding:25px;
+    padding:15px;
 
     display:flex;
-    gap:18px;
+    gap:12px;
     align-items:flex-start;
 
     box-shadow:
@@ -501,7 +472,7 @@ body{
 
     margin-bottom:10px;
 
-    font-size:22px;
+    font-size:17px;
 }
 
 .card-kategori p{
@@ -510,13 +481,14 @@ body{
 
     line-height:1.6;
 
-    font-size:14px;
+    font-size:12px;
+    line-height:1.5;
 }
 
 .icon{
 
-    width:65px;
-    height:65px;
+    width:50px;
+    height:50px;
 
     border-radius:15px;
 
@@ -529,7 +501,7 @@ body{
 
 .icon i{
 
-    font-size:30px;
+    font-size:22px;
 }
 
 .orange-bg{
@@ -597,7 +569,7 @@ body{
 
     border-radius:20px;
 
-    padding:30px;
+    padding:20px;
 
     box-shadow:
     0 10px 25px rgba(0,0,0,.06);
@@ -609,7 +581,7 @@ body{
 
     margin-bottom:25px;
 
-    font-size:32px;
+    font-size:22px;
 }
 
 .stat-grid{
@@ -629,7 +601,7 @@ body{
 
     text-align:center;
 
-    padding:25px 10px;
+    padding:18px 8px;
 }
 
 .stat-card h3{
@@ -638,21 +610,22 @@ body{
 
     color:#163b79;
 
-    font-size:40px;
+    font-size:26px;
 }
 
 .stat-card p{
 
     color:#666;
+    font-size:13px;
 
     margin-top:8px;
 }
 
 .stat-icon,
 .step-icon{
-
-    width:60px;
-    height:60px;
+    
+    width:45px;
+    height:45px;
 
     border-radius:50%;
 
@@ -668,7 +641,7 @@ body{
 .stat-icon i,
 .step-icon i{
 
-    font-size:24px;
+    font-size:18px;
 }
 
 .biru{
@@ -706,7 +679,7 @@ body{
 
     margin:12px 0;
 
-    font-size:20px;
+    font-size:16px;
 
     font-weight:700;
 
@@ -716,6 +689,7 @@ body{
 .step h4{
 
     color:#163b79;
+    font-size:15px;
 
     margin-bottom:10px;
 }
@@ -726,7 +700,7 @@ body{
 
     line-height:1.6;
 
-    font-size:14px;
+    font-size:12px;
 }
 
 @media(max-width:1200px){
@@ -757,90 +731,10 @@ body{
 
 }
 
-/* ==========================
-   FOOTER
-========================== */
-
-.footer{
-
-    background:#082b67;
-
-    color:white;
-
-    padding:30px 5%;
-
-    display:grid;
-
-    grid-template-columns:
-    1.5fr
-    1fr
-    1fr
-    1fr;
-
-    gap:30px;
-
-    align-items:center;
-}
-
-.footer-item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-}
-
-.footer-item i{
-
-    font-size:30px;
-
-    color:white;
-}
-
-.footer-item h4{
-
-    margin-bottom:5px;
-
-    font-size:20px;
-}
-
-.footer-item p{
-
-    color:#d8e3ff;
-
-    line-height:1.6;
-}
-
-.footer-right{
-
-    text-align:right;
-
-    display:block;
-}
-
-@media(max-width:992px){
-
-    .footer{
-
-        grid-template-columns:1fr;
-
-        text-align:center;
-    }
-
-    .footer-item{
-
-        justify-content:center;
-    }
-
-    .footer-right{
-
-        text-align:center;
-    }
-
-}
 
 </style>
 
 </body>
 </html>
+
+<?= $this->include('layout/footer') ?>
