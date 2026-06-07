@@ -1,3 +1,5 @@
+<?= $this->include('layout/header') ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -279,3 +281,5 @@ body{
 
 </body>
 </html>
+
+<?= $this->include('layout/footer') ?>
