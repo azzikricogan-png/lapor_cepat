@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar</title>
 
-    <link rel="stylesheet"
-        <img src="<?= base_url('img/logo.png') ?>">
+    
 </head>
 <body>
 
@@ -72,11 +71,11 @@
                 silahkan Masuk sekarang
             </p>
 
-            <button class="login-btn">
+            <a href="<?= base_url('/login') ?>" class="login-link">
                 Masuk
-            </button>
+            </a>
 
-            <img src="https://i.imgur.com/0r6bYtN.png" alt="register">
+            <img src="<?= base_url('img/maskot1.png') ?>" alt="login">
 
         </div>
 
@@ -94,7 +93,7 @@
 }
 
 body{
-    background: #f3f3f3;
+    background: #f4f6f9;
     height:100vh;
     display:flex;
     justify-content:center;
@@ -117,7 +116,7 @@ body{
 
 .left-panel{
     width:50%;
-    background: #efefef;
+    background: #f4f6f9;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -163,11 +162,18 @@ body{
     height:45px;
     border:none;
     border-radius:30px;
-    background: #0400ffd8;
+    background:#ff9735;
+    color:white;
     cursor:pointer;
     font-weight:600;
     margin-top:10px;
-    box-shadow:0 5px 10px rgba(0,0,0,.1);
+    box-shadow:0 8px 20px rgba(103,79,61,0.3);
+    transition:.3s;
+}
+
+.register-btn:hover{
+    background:#ffad5a;
+    transform:translateY(-3px);
 }
 
 .separator{
@@ -177,7 +183,7 @@ body{
 
 .google-btn{
     border:none;
-    background: #4f86f7;
+    background:#002b78;
     color:white;
     height:50px;
     border-radius:30px;
@@ -185,7 +191,7 @@ body{
     display:flex;
     align-items:center;
     gap:12px;
-    margin: auto;
+    margin:auto;
     cursor:pointer;
     font-weight:600;
 }
@@ -201,7 +207,7 @@ body{
 
 .right-panel{
     width:50%;
-    background: #0400ffd8;
+    background: #002b78;
     position:relative;
     overflow:hidden;
 }
@@ -213,7 +219,7 @@ body{
     top:-100px;
     width:700px;
     height:1000px;
-    background: #efefef;
+    background: #f4f6f9;
     border-radius:50%;
 }
 
@@ -230,24 +236,35 @@ body{
 .right-content h2{
     font-size:28px;
     margin-bottom:15px;
+    color: rgb(0, 0, 0);
 }
 
 .right-content p{
     text-align:center;
     margin-bottom:25px;
     font-size:18px;
+    color: rgb(0, 0, 0);
 }
 
-.login-btn{
-    width:160px;
-    height:45px;
-    border:none;
-    border-radius:30px;
-    background: #0400ffd8;
+
+
+.login-link{
+    display:inline-block;
+    padding:12px 40px;
+    background:#ff9735;
+    border-radius:50px;
+    color:#ffffff;
+    text-decoration:none;
     font-weight:600;
-    cursor:pointer;
-    box-shadow:0 5px 10px rgba(0,0,0,.1);
 }
+
+.login-link:hover{
+    background:#ff9735;
+    color:#ffffff;
+    transform:translateY(-3px);
+}
+
+
 
 .right-content img{
     width:380px;
