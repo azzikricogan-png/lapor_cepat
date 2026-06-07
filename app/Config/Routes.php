@@ -11,9 +11,20 @@ $routes->get('/', 'Awalan::index');
 $routes->get('/awalan', 'Awalan::index');
 $routes->post('/awalan/login','Awalan::proses');
 
+#home
+$routes->get('/home', 'Home::index');
+
+
 # Auth
+#login
 $routes->get('/login', 'Auth::login');
+$routes->post('/login', 'auth::homex');
+
+
+#register
 $routes->get('/register', 'Auth::register');
+$routes->post('/register', 'auth::store');
+
 $routes->get('auth/google', 'Auth::googleLogin');
 $routes->get('auth/google/callback', 'Auth::googleCallback');
 
