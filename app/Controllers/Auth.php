@@ -46,6 +46,7 @@ class Auth extends BaseController
 
         return redirect()
             ->back()
+            ->withInput()
             ->with('error', 'Email atau password salah');
     }
 
@@ -62,9 +63,20 @@ class Auth extends BaseController
     // =========================
     public function store()
     {
+        // Cek password dan konfirmasi password
+        if (
+            $this->request->getPost('password') !=
+            $this->request->getPost('konfirmasi_password')
+        ) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', 'Konfirmasi password tidak cocok');
+        }
+
         $model = new UserModel();
 
-        // Cek email sudah ada atau belum
+        // Cek email sudah terdaftar
         $cekEmail = $model
             ->where('email', $this->request->getPost('email'))
             ->first();
@@ -76,6 +88,7 @@ class Auth extends BaseController
                 ->with('error', 'Email sudah terdaftar');
         }
 
+        // Simpan data user
         $model->save([
             'nama'     => $this->request->getPost('nama'),
             'email'    => $this->request->getPost('email'),
@@ -83,25 +96,12 @@ class Auth extends BaseController
                 $this->request->getPost('password'),
                 PASSWORD_DEFAULT
             ),
-            'no_hp'    => $this->request->getPost('no_hp'),
             'role'     => 'user'
         ]);
 
         return redirect()
             ->to('/login')
             ->with('success', 'Registrasi berhasil, silakan login');
-    }
-
-    // =========================
-    // HALAMAN HOME
-    // =========================
-    public function home()
-    {
-        if (!session()->get('logged_in')) {
-            return redirect()->to('/login');
-        }
-
-        return view('home');
     }
 
     // =========================

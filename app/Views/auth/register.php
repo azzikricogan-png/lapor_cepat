@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="input-group">
-                    <input type="password" name="password" placeholder="Konfirmasi Password" required>
+                    <input type="password" name="konfirmasi_password" placeholder="Konfirmasi Password" required>
                 </div>
 
                 <button type="submit" class="register-btn">
