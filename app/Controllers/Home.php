@@ -8,4 +8,11 @@ class Home extends BaseController
     {
         return view('home/index');
     }
+
+    public function logout()
+    {
+    session()->destroy();
+
+    return redirect()->to('/');
+    }
 }
