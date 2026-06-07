@@ -24,7 +24,7 @@
                 </div>
             <?php endif; ?>
 
-            <form action="<?= base_url('auth/register') ?>" method="post" autocomplete="off"">
+            <form action="<?= base_url('/register') ?>" method="post" autocomplete="off"">
 
                 <div class="input-group">
                     <input type="text" name="nama" placeholder="Nama Lengkap" required>

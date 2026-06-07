@@ -42,7 +42,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
             <h1>Masuk</h1>
 
-            <form action="<?= base_url('auth/login') ?>" method="post">
+            <form action="<?= base_url('/login') ?>" method="post">
 
                 <div class="input-group">
                     <i class="fa-solid fa-envelope"></i>

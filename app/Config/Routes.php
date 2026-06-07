@@ -17,12 +17,12 @@ $routes->get('/home', 'Home::index');
 # Auth
 #login
 $routes->get('/login', 'Auth::login');
-$routes->post('/login/home', 'auth::index');
+$routes->post('/login', 'auth::homex');
 
 
 #register
 $routes->get('/register', 'Auth::register');
-$routes->post('/register/home', 'auth:index');
+$routes->post('/register', 'auth::store');
 
 $routes->get('auth/google', 'Auth::googleLogin');
 $routes->get('auth/google/callback', 'Auth::googleCallback');
