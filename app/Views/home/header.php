@@ -67,9 +67,9 @@
 
     .menu{
         display:flex;
+        align-items:center;
         margin-left:auto;
-
-        gap:17px;
+        gap:20px;
     }
 
     .btn-login{
@@ -146,24 +146,32 @@
 }
 
 .profile-btn{
-    background:none;
+    background:transparent;
     border:none;
     cursor:pointer;
     padding:0;
+
+    width:42px;
+    height:42px;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .profile-avatar{
     position:relative;
-    width:48px;
-    height:48px;
+    width:42px;
+    height:42px;
 }
 
-.profile-avatar img{
-    width:48px;
-    height:48px;
+.profile-avatar{
+    position:relative;
+    width:42px;
+    height:42px;
     border-radius:50%;
-    object-fit:cover;
-    border:2px solid rgba(255,255,255,.4);
+    overflow:hidden;
 }
 
 
@@ -260,8 +268,7 @@
     <button type="button" class="profile-btn" onclick="toggleMenu()">
 
         <div class="profile-avatar">
-            <img src="<?= base_url('img/user.png') ?>" alt="Profile">
-            <span class="notification-dot"></span>
+            <img src="<?= base_url('img/maskot.png') ?>" alt="Profile">
         </div>
 
     </button>
