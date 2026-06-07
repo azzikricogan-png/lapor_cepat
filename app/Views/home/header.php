@@ -138,33 +138,34 @@
 
 .profile-menu{
     position:relative;
+    margin-left:25px;
+
+    display:flex;
+    align-items:center;
+    height:100%;
 }
 
 .profile-btn{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:#ff9735;
+    background:none;
     border:none;
-    color:white;
-    padding:8px 16px;
-    border-radius:50px;
     cursor:pointer;
-    font-weight:600;
-    transition:.3s;
+    padding:0;
 }
 
-.profile-btn:hover{
-    background:#ffad5a;
+.profile-avatar{
+    position:relative;
+    width:48px;
+    height:48px;
 }
 
-.profile-btn img{
-    width:35px;
-    height:35px;
+.profile-avatar img{
+    width:48px;
+    height:48px;
     border-radius:50%;
     object-fit:cover;
-    border:2px solid white;
+    border:2px solid rgba(255,255,255,.4);
 }
+
 
 .dropdown-menu{
     position:absolute;
@@ -256,24 +257,27 @@
 
     <div class="profile-menu">
 
-    <button class="profile-btn" onclick="toggleMenu()">
-        <img src="<?= base_url('img/user.png') ?>" alt="Profile">
-        <span>Ezy</span>
-        <i class="fa-solid fa-chevron-down"></i>
+    <button type="button" class="profile-btn" onclick="toggleMenu()">
+
+        <div class="profile-avatar">
+            <img src="<?= base_url('img/user.png') ?>" alt="Profile">
+            <span class="notification-dot"></span>
+        </div>
+
     </button>
 
     <div class="dropdown-menu" id="dropdownMenu">
         <a href="<?= base_url('profil') ?>">
             <i class="fa-solid fa-user"></i> Profil Saya
         </a>
-        
+
         <a href="<?= base_url('logout') ?>" class="logout">
             <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>
     </div>
+</div>
 
 
-</nav>
 
 <script>
 window.addEventListener('scroll', function () {
@@ -291,6 +295,8 @@ window.addEventListener('scroll', function () {
 });
 </script>
 
+
+
 <script>
 function toggleMenu() {
     document
@@ -299,6 +305,7 @@ function toggleMenu() {
 }
 
 document.addEventListener("click", function(e) {
+
     const menu = document.querySelector(".profile-menu");
 
     if (!menu.contains(e.target)) {
@@ -306,7 +313,11 @@ document.addEventListener("click", function(e) {
             .getElementById("dropdownMenu")
             .classList.remove("show");
     }
+
 });
 </script>
+</nav>
+
+
 
 </body>
