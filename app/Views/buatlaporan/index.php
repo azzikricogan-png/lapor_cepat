@@ -45,20 +45,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             </div>
 
             <div class="form-group">
-                <label>Tanggal Kejadian</label>
+                <label for="tanggal">Tanggal Kejadian</label>
 
-                <div class="date-wrapper">
-                    <i class="fa-solid fa-calendar-days"></i>
-
-                    <input
-                        type="date"
-                        id="tanggal"
-                        max="<?= date('Y-m-d') ?>">
-                </div>
-
-                <small class="date-info">
-                    Pilih tanggal kejadian yang sebenarnya terjadi
-                </small>
+                <input
+                    type="date"
+                    id="tanggal"
+                    name="tanggal"
+                    max="<?= date('m-Y-d') ?>"
+                    required>
             </div>
 
             <div class="form-group">
@@ -312,6 +306,19 @@ body{
     color:red;
 }
 
+
+# tanggal lapooran
+
+input[type="date"]::-webkit-datetime-edit{
+    color:transparent;
+}
+
+input[type="date"]:focus::-webkit-datetime-edit,
+input[type="date"]:valid::-webkit-datetime-edit{
+    color:#333;
+}
+
+# ---
 
 textarea::placeholder,
 input::placeholder{

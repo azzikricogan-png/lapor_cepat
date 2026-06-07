@@ -135,7 +135,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     <i class="fa-solid fa-file-lines"></i>
                 </div>
 
-                <h3>1.250</h3>
+                <h3>0</h3>
                 <p>Laporan Masuk</p>
 
             </div>
@@ -146,7 +146,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     <i class="fa-solid fa-check"></i>
                 </div>
 
-                <h3>980</h3>
+                <h3>0</h3>
                 <p>Laporan Selesai</p>
 
             </div>
@@ -157,7 +157,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     <i class="fa-solid fa-clock"></i>
                 </div>
 
-                <h3>210</h3>
+                <h3>0</h3>
                 <p>Sedang Diproses</p>
 
             </div>
@@ -168,7 +168,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     <i class="fa-solid fa-hourglass-half"></i>
                 </div>
 
-                <h3>60</h3>
+                <h3>0</h3>
                 <p>Menunggu Verifikasi</p>
 
             </div>

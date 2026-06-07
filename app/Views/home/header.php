@@ -264,7 +264,7 @@
     <div class="menu">
 
         <a href="<?= base_url('/home') ?>">Beranda</a>
-        <a href="<?= base_url('laporan') ?>">Laporan</a>
+        <a href="<?= base_url('laporan') ?>">Cek Status</a>
         <a href="<?= base_url('informasi') ?>">Informasi</a>
         <a href="<?= base_url('kontak') ?>">Kontak</a>
 

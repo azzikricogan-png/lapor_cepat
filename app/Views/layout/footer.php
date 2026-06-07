@@ -34,7 +34,6 @@
             <a href="#">Buat Laporan</a>
             <a href="#">Cek Status</a>
             <a href="#">Panduan</a>
-            <a href="#">FAQ</a>
 
         </div>
 
