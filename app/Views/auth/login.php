@@ -7,8 +7,8 @@
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
+
 <body>
 
 <div class="container">
@@ -16,18 +16,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     <!-- KIRI -->
     <div class="left-panel">
 
-        <div class="left-content">
+        <div class="right-content">
 
-            <h1>Belum punya Akun ?</h1>
+            <h2>Belum Punya Akun?</h2>
 
-            <p>Yuk gabung sekarang</p>
-            <p>Dan buat laporan sekarang</p>
+            <p>
+                Silahkan daftar terlebih dahulu
+                untuk mulai membuat laporan
+            </p>
 
-            <button class="register-btn">
+            <a href="<?= base_url('/register') ?>" class="btn">
                 Daftar
-            </button>
+            </a>
 
-            <img src="<?= base_url('img/maskot1.png') ?>">
+            <img src="<?= base_url('img/maskot1.png') ?>" alt="login">
 
         </div>
 
@@ -36,30 +38,31 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     <!-- KANAN -->
     <div class="right-panel">
 
-    <div class="login-box">
+        <div class="form-box">
 
-        <form action="<?= base_url('auth/login') ?>" method="post">
-            <h2>Masuk</h2>
+            <h1>Masuk</h1>
 
-            <div class="input-group">
-                <i class="fa-solid fa-envelope"></i>
-                <input type="email" name="email" placeholder="Masukkan Email" required>
-            </div>
+            <form action="<?= base_url('auth/login') ?>" method="post">
 
-            <div class="input-group">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" name="password" placeholder="Masukkan Kata Sandi" required>
-            </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
 
-            <a href="#" class="forgot">
-                Lupa Kata Sandi?
-            </a>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
 
-            <button type="submit" class="login-btn">
-                Masuk
-            </button>
+                <a href="#" class="forgot">Lupa password?</a>
 
-        </form>
+                <button type="submit" class="btn-login">
+                    Masuk
+                </button>
+
+            </form>
+
+        </div>
 
     </div>
 
@@ -67,6 +70,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <style>
 
+/* RESET */
 *{
     margin:0;
     padding:0;
@@ -74,185 +78,170 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     font-family:'Segoe UI',sans-serif;
 }
 
+/* BODY */
 body{
-    background: #f5f5f5;
+    background:#f4f6f9;
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
+/* CONTAINER */
 .container{
-    width:95%;
-    height:92vh;
-    background:white;
+    width:100%;
+    max-width:1330px;
     border-radius:10px;
-    overflow:hidden;
+    height:95vh;
+    background:white;
     display:flex;
+    overflow:hidden;
     box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-/* PANEL KIRI */
-
+/* LEFT (biru) */
 .left-panel{
     width:50%;
-    background: #0400ffd8;
+    background: #002b78;
     position:relative;
     overflow:hidden;
 }
 
-.left-panel::after{
+/* curve */
+.left-panel::before{
     content:'';
     position:absolute;
     right:-250px;
     top:-100px;
     width:700px;
-    height:900px;
-    background:white;
+    height:1000px;
+    background:#f4f6f9;
     border-radius:50%;
 }
 
-.left-content{
+/* RIGHT CONTENT DI KIRI */
+.right-content{
     position:relative;
     z-index:2;
     height:100%;
     display:flex;
     flex-direction:column;
     align-items:center;
-    padding-top:60px;
     justify-content:center;
+    text-align:center;
+    padding:20px;
 }
 
-.left-content h1{
-    margin-bottom:20px;
-    font-size:40px;
+.right-content h2{
+    font-size:30px;
+    margin-bottom:15px;
+    color: #000000;;
+
 }
 
-.left-content p{
-    margin-bottom:10px;
+.right-content p{
     font-size:18px;
+    margin-bottom:25px;
+    color:rgb(0, 0, 0);
+    font-weight:450;
 }
 
-.register-btn{
-    margin-top:25px;
-    background: #0400ffd8;
-    border:none;
-    padding:15px 60px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:17px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+.right-content img{
+    width:300px;
+    margin-top:30px;
 }
 
-.left-content img{
-    width:320px;
-    margin-top:00px;
-}
-
-/* PANEL KANAN */
-
+/* RIGHT PANEL (FORM) */
 .right-panel{
     width:50%;
-    background: #ececec;
+    background: #f4f6f9;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-.login-box {
-    width:65%;
+/* FORM BOX */
+.form-box{
+    width:60%;
     text-align:center;
 }
 
-.login-box h2{
-    font-size:60px;
-    margin-bottom:40px;
-    color: #333;
+.form-box h1{
+    font-size:50px;
+    margin-bottom:25px;
+    color: #000000;
 }
 
+/* INPUT */
 .input-group{
-    background:white;
-    margin-bottom:25px;
-    border-radius:40px;
+    height:55px;
+    background: white;
+    border-radius:30px;
     display:flex;
     align-items:center;
     padding:0 20px;
-    height:55px;
+    margin-bottom:12px;
     box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 
 .input-group i{
-    color: #bbb;
+    color: #9aa4b2;
 }
+
+
 
 .input-group input{
     flex:1;
     border:none;
     outline:none;
-    padding:15px;
-    background:transparent;
     font-size:15px;
+    padding:0 10px;
+    background: transparent !important;
 }
 
-.forgot{
+
+/* BUTTON */
+.btn,
+.btn-login{
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 32px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+
+    background: #ff9735;
+    color: #ffffff;
+
+    font-size:15px;
+    font-weight:600;
     text-decoration:none;
+
+    box-shadow:0 8px 20px rgba(103,79,61,0.3);
+    transition:transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+.btn:hover,
+.btn-login:hover{
+    background:#ffad5a;
+    transform:translateY(-4px);
+    box-shadow:0 14px 28px rgba(103,79,61,0.35);
+}
+
+.btn:active,
+.btn-login:active{
+    transform:translateY(0);
+}
+/* forgot */
+.forgot{
     display:block;
     text-align:right;
-    margin-bottom:25px;
-    color: #1565c0;
+    margin:10px 0 20px;
+    color: #002b78;
+    text-decoration:none;
 }
 
-.login-btn{
-    width:170px;
-    height:50px;
-    border:none;
-    border-radius:30px;
-    background: #0400ffd8;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 5px 10px rgba(0,0,0,.1);
-}
-
-.separator{
-    margin:25px 0;
-    font-size:20px;
-}
-
-.google-btn{
-    border:none;
-    background: #4c8bf5;
-    color:white;
-    height:50px;
-    padding:0 25px;
-    border-radius:30px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin:auto;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.google-btn img{
-    width:28px;
-    background:white;
-    border-radius:50%;
-    padding:3px;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: #000 !important;
-    transition: background-color 5000s ease-in-out 0s;
-}
 /* RESPONSIVE */
-
 @media(max-width:900px){
 
     .container{
@@ -265,39 +254,15 @@ select:-webkit-autofill {
         width:100%;
     }
 
-    .left-content img{
+    .form-box{
+        width:90%;
+        padding:40px 0;
+    }
+
+    .right-content img{
         width:220px;
     }
-
-    .login-box{
-        width:90%;
-        padding:50px 0;
-    }
-
 }
-
-<style>
-
-/* semua CSS kamu */
-
-/* RESPONSIVE */
-@media(max-width:900px){
-    ...
-}
-
-/* FIX AUTOFILL BROWSER */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: #000 !important;
-    transition: background-color 5000s ease-in-out 0s;
-}
-
-</style>
 
 </style>
 
