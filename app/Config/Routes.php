@@ -39,3 +39,6 @@ $routes->get('/buat_laporan', 'BuatLaporan::index');
 
 #informasi 
 $routes->get('/informasi', 'Informasi::index');
+
+#logout
+$routes->get('/logout', 'Home::logout');
