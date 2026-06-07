@@ -13,6 +13,7 @@ $routes->post('/awalan/login','Awalan::proses');
 
 #home
 $routes->get('/home', 'Home::index');
+$routes->get('/profil', 'Home::profil');
 $routes->post('/home', 'Home::laporan');
 
 

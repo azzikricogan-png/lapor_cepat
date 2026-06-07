@@ -9,6 +9,11 @@ class Home extends BaseController
         return view('home/index');
     }
 
+     public function profil()
+    {
+        return view('home/profil');
+    }
+
     public function logout()
     {
     session()->destroy();
