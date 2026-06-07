@@ -206,7 +206,7 @@
 
     </div>
 
-    <a href="<?= base_url('auth/login') ?>" class="btn-login">
+    <a href="<?= base_url('/login') ?>" class="btn-login">
         <i class="fa-solid fa-right-to-bracket"></i>
         Masuk
     </a>
@@ -214,13 +214,15 @@
 </nav>
 
 <script>
-window.addEventListener('scroll', function(){
+window.addEventListener('scroll', function () {
 
     const navbar = document.querySelector('.navbar');
 
-    if(window.scrollY > 50){
+    if (window.scrollY > 50 && window.scrollY < 560) {
+        // masih di tengah → transparan
         navbar.classList.add('scrolled');
-    }else{
+    } else {
+        // terlalu atas atau terlalu bawah → solid
         navbar.classList.remove('scrolled');
     }
 

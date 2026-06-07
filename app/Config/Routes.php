@@ -17,5 +17,13 @@ $routes->get('/register', 'Auth::register');
 $routes->get('auth/google', 'Auth::googleLogin');
 $routes->get('auth/google/callback', 'Auth::googleCallback');
 
-# Laporaa
+# Laporan
 $routes->get('/laporan', 'Laporan::index');
+
+
+#Buatlaporan
+$routes->get('/buat_laporan', 'BuatLaporan::index');
+
+
+#informasi 
+$routes->get('/informasi', 'Informasi::index');
