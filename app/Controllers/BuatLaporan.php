@@ -8,16 +8,25 @@ class BuatLaporan extends BaseController
 {
     public function index()
     {
+        // 🔥 CEK LOGIN
+        if (!session()->get('id_user')) {
+            return redirect()->to('/logi n');
+        }
+
         return view('buatlaporan/index');
     }
 
     public function simpan()
     {
+        // 🔥 CEK LOGIN JUGA (WAJIB)
+        if (!session()->get('id_user')) {
+            return redirect()->to('/login');
+        }
+
         $laporanModel = new LaporanModel();
 
         $id_user = session()->get('id_user');
 
-        // 🔥 ambil file foto
         $file = $this->request->getFile('foto');
         $namaFoto = null;
 
@@ -32,7 +41,7 @@ class BuatLaporan extends BaseController
             'judul'       => $this->request->getPost('judul'),
             'deskripsi'   => $this->request->getPost('deskripsi'),
             'lokasi'      => $this->request->getPost('lokasi'),
-            'foto'        => $namaFoto, // 🔥 SIMPAN FOTO
+            'foto'        => $namaFoto,
             'status'      => 'Menunggu'
         ]);
 
