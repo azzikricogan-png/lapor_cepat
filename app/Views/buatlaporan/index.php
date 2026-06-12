@@ -28,6 +28,54 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         <form action="<?= base_url('buat_laporan/simpan') ?>" method="post" enctype="multipart/form-data">
 
+
+
+            <div class="form-group">
+                <label>Instansi Tujuan <span>*</span></label>
+
+                <select name="id_layanan">
+                    <option value="">Pilih Instansi</option>
+                    <option>Dinas Pekerjaan Umum (PUPR)</option>
+                    <option>Dinas Perhubungan</option>
+                    <option>Dinas Lingkungan Hidup</option>
+                    <option>Perumda Air Minum (PDAM)</option>
+                    <option>Dinas Kependudukan dan Pencatatan Sipil (Disdukcapil)</option>
+                    <option>Dinas Pendidikan</option>
+                    <option>Dinas Kesehatan</option>
+                    <option>DPMPTSP</option>
+                    <option>Satpol PP</option>
+                    <option>Dinas Pemadam Kebakaran dan Penyelamatan</option>
+                    <option>BPBD Kota Palu</option>
+                    <option>Dinas Perumahan dan Kawasan Permukiman</option>
+                    <option>Dinas Komunikasi dan Informatika (Diskominfo)</option>
+                    <option>Lainnya</option>
+                                    </select>
+            </div>
+
+
+            <div class="form-group">
+                <label>Kategori Laporan</label>
+
+                <select>
+                    <option>Pilih Kategori Laporan</option>
+                    <option>Jalan Rusak</option>
+                    <option>Lampu Jalan</option>
+                    <option>Sampah</option>
+                    <option>Drainase/Banjir</option>
+                    <option>Air Bersih</option>
+                    <option>Kependudukan (KTP, KK, Akta)</option>
+                    <option>Pendidikan</option>
+                    <option>Kesehatan</option>
+                    <option>Perizinan</option>
+                    <option>Ketertiban Umum</option>
+                    <option>Kebakaran</option>
+                    <option>Bencana Alam</option>
+                    <option>Fasilitas Umum</option>
+                    <option>Lainnya</option>
+                </select>
+            </div>
+
+            
             <div class="form-group">
                 <label>Judul Laporan<span>*</span></label>
 
@@ -68,16 +116,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </select>
             </div>
 
-            <div class="form-group">
-                <label>Instansi Tujuan <span>*</span></label>
-
-                <select name="id_layanan">
-                    <option value="">Pilih Instansi</option>
-                    <option value="1">Dinas PU</option>
-                    <option value="2">Dinas Pendidikan</option>
-                    <option value="3">Dinas Kesehatan</option>
-                </select>
-            </div>
+            
 
             <div class="form-group">
                 <label>Kategori Laporan</label>
