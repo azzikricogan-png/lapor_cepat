@@ -279,7 +279,7 @@ body{
 
 .form-card{
     width:100%;
-    max-width:  900px; /* perbesar dari ukuran default */
+    max-width:  650px; /* perbesar dari ukuran default */
     background:#ffffff;
     border-radius:18px;
     padding:25px 30px;
@@ -360,6 +360,7 @@ select:focus{
     color:#ff9735;
     cursor:pointer;
     transition:.3s;
+    font-size:11px;
 }
 
 .upload-btn:hover{
@@ -377,6 +378,7 @@ select:focus{
     display:flex;
     align-items:center;
     gap:8px;
+    font-size:14px;
 }
 
 .check-group input{
@@ -386,12 +388,12 @@ select:focus{
 
 .btn-submit{
     width:100%;
-    height:55px;
+    height:45px;
     border:none;
     border-radius:10px;
     background:#ff6a00;
     color:white;
-    font-size:18px;
+    font-size:15px;
     font-weight:600;
     cursor:pointer;
     transition:.3s;

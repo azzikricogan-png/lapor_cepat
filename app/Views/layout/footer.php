@@ -113,9 +113,9 @@
 
 .footer-brand h2{
 
-    font-size:34px;
+    font-size:28px;
 
-    margin-bottom:15px;
+    margin-bottom:12px;
 }
 
 .putih{
@@ -162,35 +162,29 @@
 }
 
 .footer-brand p{
-
-    color:#b8c8eb;
-
+    color: #b8c8eb;
     line-height:1.9;
-
     max-width:420px;
+    font-size:14px;
 }
 
 .footer-menu h3,
 .footer-layanan h3,
 .footer-kontak h3{
-
     margin-bottom:18px;
-
-    color:#fff;
+    color: #fff;
+    font-size:16px;
 }
 
 .footer-menu a,
 .footer-layanan a{
-
     display:block;
-
-    color:#b8c8eb;
-
+    color: #b8c8eb;
     text-decoration:none;
-
     margin-bottom:12px;
-
     transition:.3s;
+    font-size:14px;
+
 }
 
 .footer-menu a:hover,
@@ -202,16 +196,12 @@
 }
 
 .footer-kontak p{
-
     color: #b8c8eb;
-
     margin-bottom:15px;
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
+    font-size:14px;
 }
 
 .footer-kontak i.lokasi {
@@ -246,8 +236,8 @@
 }
 
 .footer-bottom p{
-
     color: #b8c8eb;
+    font-size:13px;
 }
 
 .footer-social{

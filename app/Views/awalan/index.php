@@ -142,14 +142,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
             <div class="stat-card">
 
-                <div class="stat-icon hijau">
-                    <i class="fa-solid fa-check"></i>
+                <div class="stat-icon ungu">
+                    <i class="fa-solid fa-hourglass-half"></i>
                 </div>
 
                 <h3>0</h3>
-                <p>Laporan Selesai</p>
+                <p>Menunggu Verifikasi</p>
 
             </div>
+
 
             <div class="stat-card">
 
@@ -162,14 +163,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
             </div>
 
+
             <div class="stat-card">
 
-                <div class="stat-icon ungu">
-                    <i class="fa-solid fa-hourglass-half"></i>
+                <div class="stat-icon hijau">
+                    <i class="fa-solid fa-check"></i>
                 </div>
 
                 <h3>0</h3>
-                <p>Menunggu Verifikasi</p>
+                <p>Laporan Selesai</p>
 
             </div>
 
@@ -262,6 +264,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 body{
     background:#f5f7fb;
+    font-size:90%
 }
 
 /* ========= HERO ========= */
@@ -292,7 +295,7 @@ body{
 
 .hero-content{
     margin-left: 5%;
-    max-width:650px;
+    max-width:550px;
 
     padding-top:60px; /* Turunkan ke bawah */
 
@@ -307,7 +310,7 @@ body{
 
     color: #ffffff;
 
-    font-size:15px;
+    font-size:11px;
 
     font-weight:700;
 
@@ -335,7 +338,7 @@ body{
     color:white;
     
 
-    font-size:clamp(42px, 5vw, 60px);
+    font-size:clamp(28px, 3.5vw, 42px);
 
     line-height:1.1;
 
@@ -346,7 +349,7 @@ body{
 
     color: #eef4ff;
 
-    font-size:22px;
+    font-size:15px;
 
     line-height:1.7;
 
@@ -374,7 +377,7 @@ body{
 
     text-decoration:none; /* Hilangkan garis bawah */
 
-    font-size:15px;
+    font-size:11px;
 
     font-weight:700;
 
@@ -448,7 +451,7 @@ body{
 
     border-radius:18px;
 
-    padding:15px;
+    padding:12px;
 
     display:flex;
     gap:12px;
@@ -472,7 +475,7 @@ body{
 
     margin-bottom:10px;
 
-    font-size:17px;
+    font-size:13px;
 }
 
 .card-kategori p{
@@ -481,7 +484,7 @@ body{
 
     line-height:1.6;
 
-    font-size:12px;
+    font-size:10px;
     line-height:1.5;
 }
 
@@ -581,7 +584,7 @@ body{
 
     margin-bottom:25px;
 
-    font-size:22px;
+    font-size:17px;
 }
 
 .stat-grid{
@@ -610,22 +613,31 @@ body{
 
     color:#163b79;
 
-    font-size:26px;
+    font-size:18px;
 }
 
 .stat-card p{
 
-    color:#666;
-    font-size:13px;
+    color: #666;
+    font-size:11px;
 
     margin-top:8px;
+}
+
+.icon{
+    width:42px;
+    height:42px;
+}
+
+.icon i{
+    font-size:18px;
 }
 
 .stat-icon,
 .step-icon{
     
-    width:45px;
-    height:45px;
+    width:40px;
+    height:40px;
 
     border-radius:50%;
 
@@ -641,7 +653,7 @@ body{
 .stat-icon i,
 .step-icon i{
 
-    font-size:18px;
+    font-size:15px;
 }
 
 .biru{
@@ -679,7 +691,7 @@ body{
 
     margin:12px 0;
 
-    font-size:16px;
+    font-size:14px;
 
     font-weight:700;
 
@@ -689,7 +701,7 @@ body{
 .step h4{
 
     color:#163b79;
-    font-size:15px;
+    font-size:13px;
 
     margin-bottom:10px;
 }
@@ -700,7 +712,7 @@ body{
 
     line-height:1.6;
 
-    font-size:12px;
+    font-size:10px;
 }
 
 @media(max-width:1200px){
