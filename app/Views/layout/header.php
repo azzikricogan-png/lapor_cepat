@@ -37,7 +37,7 @@
     .logo{
         display:flex;
         align-items:center;
-        gap:12px;
+        gap:1px;
     }
 
     .logo img{
@@ -45,7 +45,7 @@
     }
 
     .logo-title{
-        font-size:24px;
+        font-size:20px;
         font-weight:700;
         display:flex;
         gap:2px;
@@ -61,8 +61,8 @@
 
     .logo-sub{
         color:#fff;
-        letter-spacing:4px;
-        font-size:12px;
+        letter-spacing:3px;
+        font-size:10px;
     }
 
     .menu{
@@ -85,7 +85,7 @@
     .menu a{
     color:white;
     text-decoration:none;
-    font-size:17px;
+    font-size:14px;
     font-weight:500;
     position:relative;
     transition:all .3s ease;
