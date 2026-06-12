@@ -1,4 +1,4 @@
-<?= $this->include('layout/header') ?>
+<?= view($header) ?>
 
 <!DOCTYPE html>
 <html lang="id">

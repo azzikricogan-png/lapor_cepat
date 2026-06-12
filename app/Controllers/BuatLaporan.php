@@ -10,7 +10,7 @@ class BuatLaporan extends BaseController
     {
         // 🔥 CEK LOGIN
         if (!session()->get('id_user')) {
-            return redirect()->to('/logi n');
+            return redirect()->to('/login');
         }
 
         return view('buatlaporan/index');
