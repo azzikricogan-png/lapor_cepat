@@ -44,7 +44,7 @@ $routes->post('/buat_laporan/simpan', 'BuatLaporan::simpan');
 $routes->get('/informasi', 'Informasi::index');
 
 #logout
-$routes->get('/logout', 'Home::logout');
+$routes->get('/logout', 'Auth::logout');
 
 
 

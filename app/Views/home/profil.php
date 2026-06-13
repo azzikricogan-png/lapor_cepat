@@ -267,7 +267,7 @@ body{
                         <i class="fa fa-lock"></i> Ubah Password
                     </a>
 
-                    <a href="#" class="btn btn-logout">
+                    <a href="/logout" class="btn btn-logout">
                         <i class="fa fa-sign-out-alt"></i> Logout
                     </a>
 
