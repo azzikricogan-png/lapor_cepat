@@ -57,3 +57,7 @@ $routes->get('/petugas', 'Petugas::index');
 
 #Admin
 $routes->get('/admin', 'Admin::index');
+
+
+#notifikasi
+$routes->get('/notifikasi','Notifikasi::index');

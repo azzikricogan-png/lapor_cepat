@@ -22,7 +22,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <p>Informasi terbaru dari laporan Anda</p>
         </div>
 
-        <a href="<?= base_url('laporan') ?>" class="btn-back">
+        <a href="<?= base_url('/home') ?>" class="btn-back">
             <i class="fa-solid fa-arrow-left"></i>
             Kembali
         </a>
