@@ -42,6 +42,14 @@
                     <input type="password" name="konfirmasi_password" placeholder="Konfirmasi Password" required>
                 </div>
 
+                <div class="input-group">
+                    <select name="role" required>
+                        <option value="">Pilih Role</option>
+                        <option value="user">Masyarakat</option>
+                        <option value="admin">Petugas</option>
+                    </select>
+                </div>
+
                 <button type="submit" class="register-btn">
                     Daftar
                 </button>
@@ -177,30 +185,39 @@ body{
 }
 
 .separator{
-    margin:25px 0;
-    font-size:22px;
+    margin:15px 0;
+    font-size:16px;
+    color:#999;
 }
 
 .google-btn{
+    width:100%;
+    height:48px;
     border:none;
-    background:#002b78;
-    color:white;
-    height:50px;
+    background:white;
+    color:#333;
     border-radius:30px;
-    padding:0 25px;
     display:flex;
     align-items:center;
-    gap:12px;
-    margin:auto;
+    justify-content:center;
+    gap:10px;
     cursor:pointer;
     font-weight:600;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    transition:.3s;
+    margin-top:10px;
+}
+
+.google-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
 }
 
 .google-btn img{
-    width:28px;
-    background:white;
-    border-radius:50%;
-    padding:3px;
+    width:20px;
+    height:20px;
+    background:none;
+    padding:0;
 }
 
 /* KANAN */
@@ -259,8 +276,8 @@ body{
 }
 
 .login-link:hover{
-    background:#ff9735;
-    color:#ffffff;
+    background: #ff9735;
+    color: #ffffff;
     transform:translateY(-3px);
 }
 
@@ -270,6 +287,17 @@ body{
     width:380px;
     margin-top:40px;
 }
+
+.input-group select{
+    flex:1;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:15px;
+    padding:0 15px;
+    color: ##ff9735;
+}
+
 
 /* RESPONSIVE */
 

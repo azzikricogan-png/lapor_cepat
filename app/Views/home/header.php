@@ -264,9 +264,8 @@
     <div class="menu">
 
         <a href="<?= base_url('/home') ?>">Beranda</a>
-        <a href="<?= base_url('laporan') ?>">Cek Status</a>
+        <a href="<?= base_url('laporan') ?>">Laporan Saya</a>
         <a href="<?= base_url('informasi') ?>">Informasi</a>
-        <a href="<?= base_url('kontak') ?>">Kontak</a>
 
     </div>
 
@@ -284,6 +283,10 @@
             <i class="fa-solid fa-user"></i> Profil Saya
         </a>
 
+<a href="<?= base_url('/notifikasi') ?>">
+    <i class="fa-solid fa-bell" style="color: #f4b400;"></i>
+    Notifikasi
+</a>
         <a href="<?= base_url('logout') ?>" class="logout">
             <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>

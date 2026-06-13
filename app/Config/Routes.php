@@ -49,3 +49,11 @@ $routes->get('/logout', 'Auth::logout');
 
 
 $routes->get('/lap', 'Menampilkan::index');
+$routes->get('/tampil', 'menampilkan::tampil');
+
+
+#Petugas
+$routes->get('/petugas', 'Petugas::index');
+
+#Admin
+$routes->get('/admin', 'Admin::index');
