@@ -1,3 +1,5 @@
+<?= $this->include('home/header') ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -109,25 +111,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 <label>Lokasi Kejadian <span>*</span></label>
 
                 <select name="lokasi">
-                    <option>Pilih Lokasi Kejadian</option>
-                    <option>Palu</option>
-                    <option>Sigi</option>
-                    <option>Donggala</option>
+                <option>Pilih Lokasi Kejadian</option>
+
+                <option>Balaroa</option>
+                <option>Besusu Barat</option>
+                <option>Besusu Tengah</option>
+                <option>Besusu Timur</option>
+                <option>Duyu</option>
+                <option>Kabonena</option>
+                <option>Kamonji</option>
+                <option>Lere</option>
+                <option>Nunu</option>
+                <option>Palupi</option>
+                <option>Pengawu</option>
+                <option>Silae</option>
+                <option>Talise</option>
+                <option>Talise Valangguni</option>
+                <option>Tanamodindi</option>
+                <option>Tatura Selatan</option>
+                <option>Tatura Utara</option>
+                <option>Tawanjuka</option>
+                <option>Tondo</option>
+                <option>Tipo</option>
+                <option>Ujuna</option>
                 </select>
             </div>
 
-            
-
-            <div class="form-group">
-                <label>Kategori Laporan</label>
-
-                <select>
-                    <option>Pilih Kategori Laporan</option>
-                    <option>Jalan Rusak</option>
-                    <option>Sampah</option>
-                    <option>Lampu Jalan</option>
-                </select>
-            </div>
+        
 
             <div class="upload-area">
 
@@ -144,19 +154,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
             </div>
 
-            <div class="check-group">
+                <div class="check-group">
 
-                <label>
-                    <input type="checkbox" name="anonim" value="1">
-                    Anonim
-                </label>
+                    <label>
+                        <input type="radio" name="status_laporan" value="anonim">
+                        Anonim
+                    </label>
 
-                <label>
-                    <input type="checkbox" name="rahasia" value="1">
-                    Rahasia
-                </label>
+                    <label>
+                        <input type="radio" name="status_laporan" value="rahasia">
+                        Rahasia
+                    </label>
 
-            </div>
+                </div>
 
             <button type="submit" class="btn-submit">
                 Lapor
@@ -168,57 +178,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 </div>
 
-<div class="progress-laporan">
 
-    <div class="progress-line">
-        <div class="progress-active"></div>
-    </div>
-
-    <div class="step active">
-        <div class="icon">
-            <i class="fa-solid fa-pen-to-square"></i>
-        </div>
-        <h4>Tulis Laporan</h4>
-        <p>Laporkan keluhan atau aspirasi anda dengan jelas dan lengkap</p>
-    </div>
-
-    <div class="step">
-        <div class="icon">
-            <i class="fa-solid fa-share"></i>
-        </div>
-        <h4>Proses Verifikasi</h4>
-        <p>Dalam 3 hari, laporan Anda akan diverifikasi dan diteruskan kepada instansi berwenang</p>
-    </div>
-
-    <div class="step">
-        <div class="icon">
-            <i class="fa-regular fa-file-lines"></i>
-        </div>
-        <h4>Proses Tindak Lanjut</h4>
-        <p>Dalam 5 hari, instansi akan menindaklanjuti dan membalas laporan Anda</p>
-    </div>
-
-    <div class="step">
-        <div class="icon">
-            <i class="fa-regular fa-message"></i>
-        </div>
-        <h4>Beri Tanggapan</h4>
-        <p>Anda dapat menanggapi kembali balasan yang diberikan oleh instansi dalam waktu 10 hari</p>
-    </div>
-
-    <div class="step">
-        <div class="icon">
-            <i class="fa-solid fa-check"></i>
-        </div>
-        <h4>Selesai</h4>
-        <p>Laporan Anda akan terus ditindaklanjuti hingga terselesaikan</p>
-    </div>
-
-</div>
-
-<a href="#" class="scroll-top">
-    <i class="fa-solid fa-arrow-up"></i>
-</a>
 
 <style>
 
