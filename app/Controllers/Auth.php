@@ -103,6 +103,7 @@ class Auth extends BaseController
                 $this->request->getPost('password'),
                 PASSWORD_DEFAULT
             ),
+            'role'     => 'masyarakat', 'petugas'
         ]);
 
         return redirect()

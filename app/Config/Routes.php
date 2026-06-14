@@ -61,3 +61,8 @@ $routes->get('/admin', 'Admin::index');
 
 #notifikasi
 $routes->get('/notifikasi','Notifikasi::index');
+
+
+
+#ambil sandi
+$routes->get('/cap', 'cap::index');
