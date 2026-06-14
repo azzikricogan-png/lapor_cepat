@@ -229,8 +229,10 @@ $current = uri_string();
                     </div>
 
                     <div class="info">
-                        <b><?= esc($u['nama'] ?? '-') ?></b>
-                        <small><?= esc($u['email'] ?? '-') ?></small>
+                        <b><?= esc($u['nama'] ?? '-') ?></b><br>
+                        <small>Email: <?= esc($u['email'] ?? '-') ?></small><br>
+                        <small>Role: <?= esc($u['role'] ?? '-') ?></small><br>
+                        <small>No Hp: <?= esc($u['no_hp'] ?? '_') ?></small><br>
                     </div>
 
                 </div>
