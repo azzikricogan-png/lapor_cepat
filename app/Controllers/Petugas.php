@@ -4,15 +4,17 @@ namespace App\Controllers;
 use App\Models\UserModel;
 class Petugas extends BaseController
 {
+    public function profil()
+    {
+        return view('petugas/profil');
+    }
+
+
     public function index()
     {
         return view('petugas/index');
     }
 
-    public function profil()
-    {
-        return view('petugas/profil');
-    }
 
     public function laporan()
     {

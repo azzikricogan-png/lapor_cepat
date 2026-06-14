@@ -161,7 +161,7 @@ body{
     color: #c0c0c0;
 }
 
-.input-group input
+.input-group input,
 .input-grup select{
     flex:1;
     border:none;
@@ -260,7 +260,8 @@ body{
 }
 
 .right-content h2{
-    font-size:28px;
+    font-size:22px;
+    font-weight:600;
     margin-bottom:15px;
     color: rgb(0, 0, 0);
 }
@@ -268,7 +269,9 @@ body{
 .right-content p{
     text-align:center;
     margin-bottom:25px;
-    font-size:18px;
+    font-size:14px;
+    line-height:1.6;
+    max-width:300px;
     color: rgb(0, 0, 0);
 }
 
@@ -276,12 +279,13 @@ body{
 
 .login-link{
     display:inline-block;
-    padding:12px 40px;
+    padding:10px 35px;
     background:#ff9735;
     border-radius:50px;
     color:#ffffff;
     text-decoration:none;
     font-weight:600;
+    font-size:14px;
 }
 
 .login-link:hover{
