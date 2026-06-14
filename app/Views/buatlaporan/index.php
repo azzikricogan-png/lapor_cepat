@@ -35,7 +35,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <div class="form-group">
                 <label>Instansi Tujuan <span>*</span></label>
 
-                <select name="id_layanan">
+                <select name="">
                     <option value="">Pilih Instansi</option>
                     <option>Dinas Pekerjaan Umum (PUPR)</option>
                     <option>Dinas Perhubungan</option>
@@ -58,22 +58,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <div class="form-group">
                 <label>Kategori Laporan</label>
 
-                <select>
-                    <option>Pilih Kategori Laporan</option>
-                    <option>Jalan Rusak</option>
-                    <option>Lampu Jalan</option>
-                    <option>Sampah</option>
-                    <option>Drainase/Banjir</option>
-                    <option>Air Bersih</option>
-                    <option>Kependudukan (KTP, KK, Akta)</option>
-                    <option>Pendidikan</option>
-                    <option>Kesehatan</option>
-                    <option>Perizinan</option>
-                    <option>Ketertiban Umum</option>
-                    <option>Kebakaran</option>
-                    <option>Bencana Alam</option>
-                    <option>Fasilitas Umum</option>
-                    <option>Lainnya</option>
+                <select name="id_layanan">
+                    <option value="">Pilih Kategori Laporan</option>
+                    <option value="17">Jalan Rusak</option>
+                    <option value="18">Lampu Jalan</option>
+                    <option value="19">Sampah</option>
+                    <option value="20">Drainase/Banjir</option>
+                    <option value="21">Air Bersih</option>
+                    <option value="22">Kependudukan (KTP, KK, Akta)</option>
+                    <option value="23">Pendidikan</option>
+                    <option value="24">Kesehatan</option>
+                    <option value="25">Perizinan</option>
+                    <option value="26">Ketertiban Umum</option>
+                    <option value="27">Kebakaran</option>
+                    <option value="28">Bencana Alam</option>
+                    <option value="29">Fasilitas Umum</option>
+                    <option value="30">Lainnya</option>
                 </select>
             </div>
 
