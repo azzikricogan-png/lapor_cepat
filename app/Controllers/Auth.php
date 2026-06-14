@@ -41,7 +41,14 @@ class Auth extends BaseController
                 'logged_in' => true
             ]);
 
-            return redirect()->to('/home');
+            // Redirect sesuai role
+            if ($user['role'] == 'admin') {
+                return redirect()->to('/admin');
+            }elseif ($user['role'] == 'petugas') {
+                return redirect()->to('/petugas');
+            }else { //masyarakat
+                return redirect()->to('/home');
+            }
         }
 
        return redirect()
@@ -90,12 +97,12 @@ class Auth extends BaseController
         // Simpan data user
         $model->save([
             'nama'     => $this->request->getPost('nama'),
+            'role'     => $this->request->getPost('role'),
             'email'    => $this->request->getPost('email'),
             'password' => password_hash(
                 $this->request->getPost('password'),
                 PASSWORD_DEFAULT
             ),
-            'role'     => 'user'
         ]);
 
         return redirect()

@@ -46,7 +46,7 @@
                     <select name="role" required>
                         <option value="">Pilih Role</option>
                         <option value="user">Masyarakat</option>
-                        <option value="admin">Petugas</option>
+                        <option value="petugas">Petugas</option>
                     </select>
                 </div>
 
