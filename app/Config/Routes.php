@@ -53,7 +53,10 @@ $routes->get('/tampil', 'menampilkan::tampil');
 
 
 #Petugas
-$routes->get('/petugas', 'Petugas::index');
+$routes->get('petugas', 'Petugas::index');
+$routes->get('petugas/profil', 'Petugas::profil');
+$routes->get('petugas/laporan', 'Petugas::laporan');
+$routes->get('petugas/notifikasi', 'Petugas::notifikasi');
 
 #Admin
 $routes->get('/admin', 'Admin::index');

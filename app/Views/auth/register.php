@@ -35,6 +35,10 @@
                 </div>
 
                 <div class="input-group">
+                    <input type="tel" name="no_hp" placeholder="No HP" required>
+                </div>
+
+                <div class="input-group">
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
 
@@ -136,18 +140,19 @@ body{
 }
 
 .form-box h1{
-    font-size:50px;
-    margin-bottom:20px;
-    color: #333;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:15px;
+    color:#333;
 }
 
 .input-group{
-    height:55px;
+    height:45px;
     background:white;
-    border-radius:30px;
+    border-radius:25px;
     display:flex;
     align-items:center;
-    padding:0 20px;
+    padding:0 15px;
     margin-bottom:7px;
     box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
@@ -156,13 +161,15 @@ body{
     color: #c0c0c0;
 }
 
-.input-group input{
+.input-group input
+.input-grup select{
     flex:1;
     border:none;
     outline:none;
     background:transparent;
     padding:0 15px;
-    font-size:15px;
+    font-size:14px;
+    color: #555;
 }
 
 .register-btn{
@@ -177,6 +184,7 @@ body{
     margin-top:10px;
     box-shadow:0 8px 20px rgba(103,79,61,0.3);
     transition:.3s;
+    font-size:14px;
 }
 
 .register-btn:hover{
@@ -185,9 +193,9 @@ body{
 }
 
 .separator{
-    margin:15px 0;
-    font-size:16px;
-    color:#999;
+    margin:12px 0;
+    font-size:13px;
+    color:#888;
 }
 
 .google-btn{
@@ -206,6 +214,7 @@ body{
     box-shadow:0 3px 10px rgba(0,0,0,.08);
     transition:.3s;
     margin-top:10px;
+    font-size:13px;
 }
 
 .google-btn:hover{
