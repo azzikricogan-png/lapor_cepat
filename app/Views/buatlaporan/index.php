@@ -32,27 +32,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 
 
-            <div class="form-group">
-                <label>Instansi Tujuan <span>*</span></label>
 
-                <select name="">
-                    <option value="">Pilih Instansi</option>
-                    <option>Dinas Pekerjaan Umum (PUPR)</option>
-                    <option>Dinas Perhubungan</option>
-                    <option>Dinas Lingkungan Hidup</option>
-                    <option>Perumda Air Minum (PDAM)</option>
-                    <option>Dinas Kependudukan dan Pencatatan Sipil (Disdukcapil)</option>
-                    <option>Dinas Pendidikan</option>
-                    <option>Dinas Kesehatan</option>
-                    <option>DPMPTSP</option>
-                    <option>Satpol PP</option>
-                    <option>Dinas Pemadam Kebakaran dan Penyelamatan</option>
-                    <option>BPBD Kota Palu</option>
-                    <option>Dinas Perumahan dan Kawasan Permukiman</option>
-                    <option>Dinas Komunikasi dan Informatika (Diskominfo)</option>
-                    <option>Lainnya</option>
-                                    </select>
-            </div>
 
 
             <div class="form-group">
@@ -153,20 +133,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 hidden>
 
             </div>
-
-                <div class="check-group">
-
-                    <label>
-                        <input type="radio" name="status_laporan" value="anonim">
-                        Anonim
-                    </label>
-
-                    <label>
-                        <input type="radio" name="status_laporan" value="rahasia">
-                        Rahasia
-                    </label>
-
-                </div>
 
             <button type="submit" class="btn-submit">
                 Lapor
@@ -347,6 +313,7 @@ select:focus{
 
 .upload-area{
     margin-top:10px;
+    margin-bottom:20px;
 }
 
 .upload-btn{
