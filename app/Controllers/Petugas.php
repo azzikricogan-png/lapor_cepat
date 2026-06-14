@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use App\Models\LaporanModel;
+use App\Models\LayananLaporanModel;
 
 class Petugas extends BaseController
 {
@@ -19,16 +20,31 @@ class Petugas extends BaseController
 
     public function laporan()
     {
-        $laporanModel = new LaporanModel();
+    $laporanModel = new LaporanModel();
 
-        $data['laporan'] = $laporanModel
-            ->select('laporan.*, users.nama')
-            ->join('users', 'users.id_user = laporan.id_user')
-            ->findAll();
+    $data['laporan'] = $laporanModel
+        ->select('laporan.*, users.nama, layanan_laporan.nama_layanan')
+        ->join('users', 'users.id_user = laporan.id_user')
+        ->join('layanan_laporan', 'layanan_laporan.id_layanan = laporan.id_layanan')
+        ->findAll();
 
-        return view('petugas/laporan', $data);
+    return view('petugas/laporan', $data);
     }
 
+    public function updateStatus()
+    {
+    $laporanModel = new \App\Models\LaporanModel();
+
+    $id_laporan = $this->request->getPost('id_laporan');
+    $status     = $this->request->getPost('status');
+
+    $laporanModel->update($id_laporan, [
+        'status' => $status
+    ]);
+
+    return redirect()->to('/petugas/laporan')
+                     ->with('success', 'Status berhasil diperbarui');
+    }
 
     public function notifikasi()
     {

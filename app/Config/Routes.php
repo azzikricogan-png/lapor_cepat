@@ -57,7 +57,9 @@ $routes->get('petugas', 'Petugas::index');
 $routes->get('petugas/profil', 'Petugas::profil');
 $routes->post('/petugas/updateProfil', 'Petugas::updateProfil');
 $routes->get('petugas/laporan', 'Petugas::laporan');
+$routes->post('petugas/updateStatus', 'Petugas::updateStatus');
 $routes->get('petugas/notifikasi', 'Petugas::notifikasi');
+
 
 #Admin
 $routes->get('/admin', 'Admin::index');

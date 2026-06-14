@@ -146,7 +146,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <td><?= esc($row['nama']) ?></td>
 
-    <td><?= esc($row['id_layanan']) ?></td>
+    <td><?= esc($row['nama_layanan']) ?></td>
 
     <td><?= esc($row['lokasi']) ?></td>
 
@@ -184,12 +184,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             class="btn-detail"
 
             onclick="openModal(
-                '<?= esc($row['judul']) ?>',
-                '<?= esc($row['nama']) ?>',
-                '<?= esc($row['id_layanan']) ?>',
-                '<?= esc($row['lokasi']) ?>',
-                '<?= esc($row['deskripsi']) ?>',
-                '<?= esc($row['status']) ?>'
+            '<?= $row['id_laporan'] ?>',
+            '<?= esc($row['judul']) ?>',
+            '<?= esc($row['nama']) ?>',
+            '<?= esc($row['nama_layanan']) ?>',
+            '<?= esc($row['lokasi']) ?>',
+            '<?= esc($row['deskripsi']) ?>',
+            '<?= esc($row['status']) ?>'
             )">
 
             <i class="fa fa-eye"></i>
@@ -309,34 +310,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     Update Status
                 </h3>
 
-                <form action="#" method="post">
+            <form action="<?= base_url('petugas/updateStatus') ?>" method="post">
 
-                    <select name="status">
+                <input type="hidden"
+                        name="id_laporan"
+                        id="id_laporan">
 
-                        <option value="Pending">
-                            Pending
-                        </option>
-
-                        <option value="Diproses">
-                            Diproses
-                        </option>
-
-                        <option value="Selesai">
-                            Selesai
-                        </option>
-
+                <select name="status">
+                    <option value="Menunggu">Menunggu</option>
+                    <option value="Diproses">Diproses</option>
+                    <option value="Selesai">Selesai</option>
+                    <option value="Ditolak">Ditolak</option>
                     </select>
 
-                    <button
-                        type="submit"
-                        class="btn-update">
+                <button type="submit" class="btn-update">
+                    Simpan Status
+                </button>
 
-                        <i class="fa fa-save"></i>
-                        Simpan Status
+            </form>
 
-                    </button>
-
-                </form>
 
             </div>
 
@@ -348,7 +340,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <script>
 
-function openModal(judul, pelapor, layanan, lokasi, deskripsi, status){
+function openModal(
+    id_laporan,
+    judul,
+    pelapor,
+    layanan,
+    lokasi,
+    deskripsi,
+    status
+){
+    console.log("ID Laporan =", id_laporan);
+
+    document.getElementById('id_laporan').value = id_laporan;
 
     document.getElementById('detailJudul').innerText = judul;
     document.getElementById('detailPelapor').innerText = pelapor;
@@ -357,23 +360,7 @@ function openModal(judul, pelapor, layanan, lokasi, deskripsi, status){
     document.getElementById('detailDeskripsi').innerText = deskripsi;
     document.getElementById('detailStatus').innerText = status;
 
-    // FOTO RANDOM DEMO
-    document.getElementById('detailFoto').src =
-        "https://picsum.photos/800/400?random=" + Math.floor(Math.random()*10);
-
     document.getElementById('detailModal').style.display = 'flex';
-}
-
-window.onclick = function(event){
-
-    let modal = document.getElementById('detailModal');
-
-    if(event.target == modal){
-
-        modal.style.display='none';
-
-    }
-
 }
 
 </script>
