@@ -26,12 +26,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <p>Kelola seluruh laporan masyarakat dengan mudah.</p>
         </div>
 
-        <div class="header-right">
-            <button class="btn-refresh">
-                <i class="fa fa-rotate"></i>
-                Refresh
-            </button>
-        </div>
+  
 
     </div>
 
@@ -271,6 +266,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <!-- TANGGAPAN -->
             <div class="section-card">
 
+
+                    <h3><i class="fa fa-image"></i> Foto Laporan</h3>
+
+                    <img id="detailFoto"
+                        src="https://via.placeholder.com/800x400"
+                        style="width:100%;border-radius:12px;margin-top:10px;">
+
+
                 <h3>
                     <i class="fa fa-comments"></i>
                     Tanggapan Petugas
@@ -342,14 +345,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <script>
 
-function openModal(
-    judul,
-    pelapor,
-    layanan,
-    lokasi,
-    deskripsi,
-    status
-){
+function openModal(judul, pelapor, layanan, lokasi, deskripsi, status){
 
     document.getElementById('detailJudul').innerText = judul;
     document.getElementById('detailPelapor').innerText = pelapor;
@@ -358,13 +354,11 @@ function openModal(
     document.getElementById('detailDeskripsi').innerText = deskripsi;
     document.getElementById('detailStatus').innerText = status;
 
-    document.getElementById('detailModal').style.display='flex';
-}
+    // FOTO RANDOM DEMO
+    document.getElementById('detailFoto').src =
+        "https://picsum.photos/800/400?random=" + Math.floor(Math.random()*10);
 
-function closeModal(){
-
-    document.getElementById('detailModal').style.display='none';
-
+    document.getElementById('detailModal').style.display = 'flex';
 }
 
 window.onclick = function(event){
@@ -727,8 +721,8 @@ tbody tr:hover{
 
 .modal-content{
     background:white;
-    width:90%;
-    max-width:900px;
+    width:70%;
+    max-width:600px;
     border-radius:20px;
     overflow:hidden;
     max-height:90vh;
