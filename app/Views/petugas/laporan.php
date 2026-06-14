@@ -128,79 +128,82 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <tbody>
 
-<tr>
-    <td><img src="https://via.placeholder.com/60" class="foto-laporan"></td>
-    <td>Jalan Rusak Parah</td>
-    <td>Andi</td>
-    <td>Jalan Rusak</td>
-    <td>Palu Barat</td>
-    <td><span class="badge pending">Pending</span></td>
-    <td>14 Jun 2026</td>
-    <td>
-        <button class="btn-detail"
-        onclick="openModal(
-            'Jalan Rusak Parah',
-            'Andi',
-            'Jalan Rusak',
-            'Palu Barat',
-            'Jalan berlubang besar dan sangat berbahaya untuk motor.',
-            'Pending'
-        )">
-        <i class="fa fa-eye"></i> Detail
-        </button>
-    </td>
-</tr>
+<?php foreach ($laporan as $row): ?>
 
 <tr>
-    <td><img src="https://via.placeholder.com/60"></td>
-    <td>Lampu Jalan Mati</td>
-    <td>Budi</td>
-    <td>Lampu Jalan</td>
-    <td>Palu Timur</td>
-    <td><span class="badge proses">Diproses</span></td>
-    <td>13 Jun 2026</td>
+
     <td>
-        <button class="btn-detail"
-        onclick="openModal(
-            'Lampu Jalan Mati',
-            'Budi',
-            'Lampu Jalan',
-            'Palu Timur',
-            'Lampu sudah mati selama 1 minggu di jalan utama.',
-            'Diproses'
-        )">
-        <i class="fa fa-eye"></i> Detail
-        </button>
+        <?php if (!empty($row['foto'])): ?>
+            <img
+                src="<?= base_url('uploads/' . $row['foto']) ?>"
+                class="foto-laporan">
+        <?php else: ?>
+            Tidak Ada Foto
+        <?php endif; ?>
     </td>
+
+    <td><?= esc($row['judul']) ?></td>
+
+    <td><?= esc($row['nama']) ?></td>
+
+    <td><?= esc($row['id_layanan']) ?></td>
+
+    <td><?= esc($row['lokasi']) ?></td>
+
+    <td>
+
+        <?php if($row['status'] == 'Pending'): ?>
+
+            <span class="badge pending">
+                Pending
+            </span>
+
+        <?php elseif($row['status'] == 'Diproses'): ?>
+
+            <span class="badge proses">
+                Diproses
+            </span>
+
+        <?php else: ?>
+
+            <span class="badge selesai">
+                Selesai
+            </span>
+
+        <?php endif; ?>
+
+    </td>
+
+    <td>
+        <?= date('d M Y', strtotime($row['created_at'])) ?>
+    </td>
+
+    <td>
+
+        <button
+            class="btn-detail"
+
+            onclick="openModal(
+                '<?= esc($row['judul']) ?>',
+                '<?= esc($row['nama']) ?>',
+                '<?= esc($row['id_layanan']) ?>',
+                '<?= esc($row['lokasi']) ?>',
+                '<?= esc($row['deskripsi']) ?>',
+                '<?= esc($row['status']) ?>'
+            )">
+
+            <i class="fa fa-eye"></i>
+            Detail
+
+        </button>
+
+    </td>
+
 </tr>
 
-<tr>
-    <td><img src="https://via.placeholder.com/60"></td>
-    <td>Sampah Menumpuk</td>
-    <td>ezi</td>
-    <td>Kebersihan</td>
-    <td>Palu Selatan</td>
-    <td><span class="badge selesai">Selesai</span></td>
-    <td>10 Jun 2026</td>
-    <td>
-        <button class="btn-detail"
-        onclick="openModal(
-            'Sampah Menumpuk',
-            'ezi',
-            'Kebersihan',
-            'Palu Selatan',
-            'Sampah sudah dibersihkan oleh petugas.',
-            'Selesai'
-        )">
-        <i class="fa fa-eye"></i> Detail
-        </button>
-    </td>
-</tr>
+<?php endforeach; ?>
 
 </tbody>
-
-
-
         </table>
 
     </div>

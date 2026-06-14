@@ -1,33 +1,40 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\UserModel;
+use App\Models\LaporanModel;
+
 class Petugas extends BaseController
 {
-    public function profil()
-    {
-        return view('petugas/profil');
-    }
-
-
     public function index()
     {
         return view('petugas/index');
     }
 
+    public function profil()
+    {
+        return view('petugas/profil');
+    }
 
     public function laporan()
     {
-        return view('petugas/laporan');
+        $laporanModel = new LaporanModel();
+
+        $data['laporan'] = $laporanModel
+            ->select('laporan.*, users.nama')
+            ->join('users', 'users.id_user = laporan.id_user')
+            ->findAll();
+
+        return view('petugas/laporan', $data);
     }
+
 
     public function notifikasi()
     {
         return view('petugas/notifikasi');
     }
 
-
-     // UPDATE PROFIL
     public function updateProfil()
     {
         $userModel = new UserModel();
@@ -40,7 +47,6 @@ class Petugas extends BaseController
             'no_hp' => $this->request->getPost('no_hp')
         ]);
 
-        // Update session juga
         session()->set([
             'nama'  => $this->request->getPost('nama'),
             'email' => $this->request->getPost('email'),
