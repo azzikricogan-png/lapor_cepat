@@ -97,13 +97,14 @@ class Auth extends BaseController
         // Simpan data user
         $model->save([
             'nama'     => $this->request->getPost('nama'),
+            'no_hp'    => $this->request->getPost('no_hp'),
             'role'     => $this->request->getPost('role'),
             'email'    => $this->request->getPost('email'),
             'password' => password_hash(
                 $this->request->getPost('password'),
                 PASSWORD_DEFAULT
             ),
-            'role'     => 'masyarakat', 'petugas'
+            'role' => $this->request->getPost('role'),
         ]);
 
         return redirect()
