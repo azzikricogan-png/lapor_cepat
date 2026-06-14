@@ -6,20 +6,11 @@ use App\Models\LaporanModel;
 
 class Menampilkan extends BaseController
 {
-
-
-    public function tampil ()
-    {
-        return view('instansi/instansi');
-    }
     public function index()
     
 
     {
         $model = new LaporanModel();
-
-        return view('instansi/instansi');
-
         $laporan = $model->findAll();
 
         foreach ($laporan as $row) {
