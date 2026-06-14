@@ -135,7 +135,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     <i class="fa-solid fa-file-lines"></i>
                 </div>
 
-                <h3>0</h3>
+                <h3><?= $total ?></h3>
                 <p>Laporan Masuk</p>
 
             </div>
@@ -170,7 +170,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     <i class="fa-solid fa-check"></i>
                 </div>
 
-                <h3>0</h3>
+                <h3></h3>
                 <p>Laporan Selesai</p>
 
             </div>
