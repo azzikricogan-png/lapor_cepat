@@ -17,6 +17,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <!-- MAIN CONTENT -->
 <div class="main">
 
+    <?php if(session()->getFlashdata('success')) : ?>
+        <div class="alert-success">
+            <?= session()->getFlashdata('success') ?>
+        </div>
+    <?php endif; ?>
+
     <div class="page-header">
 
         <div>
