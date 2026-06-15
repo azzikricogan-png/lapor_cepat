@@ -34,6 +34,13 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
+
+         // FILTER BUATAN SENDIRI
+        'auth'          => \App\Filters\AuthFilter::class,
+        'admin'         => \App\Filters\AdminFilter::class,
+        'petugas'       => \App\Filters\PetugasFilter::class,
+        'masyarakat'    => \App\Filters\MasyarakatFilter::class,
+
     ];
 
     /**
