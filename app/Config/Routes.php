@@ -37,7 +37,7 @@ $routes->get('/laporan', 'Laporan::index');
 
 #Buatlaporan
 $routes->get('/buat_laporan', 'BuatLaporan::index');
-$routes->post('/buat_laporan/simpan', 'Buatlaporan::simpan');
+$routes->post('/buat_laporan/simpan', 'BuatLaporan::simpan');
 
 
 #informasi 

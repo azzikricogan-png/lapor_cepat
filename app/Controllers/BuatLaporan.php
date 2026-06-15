@@ -18,7 +18,6 @@ class BuatLaporan extends BaseController
 
     public function simpan()
     {
-        // 🔥 CEK LOGIN JUGA (WAJIB)
         if (!session()->get('id_user')) {
             return redirect()->to('/login');
         }
@@ -27,6 +26,43 @@ class BuatLaporan extends BaseController
 
         $id_user = session()->get('id_user');
 
+    // =========================
+    // AMBIL LOKASI (LAT LNG)
+    // =========================
+        $lokasi = $this->request->getPost('lokasi'); 
+        $alamat = $lokasi; // default kalau gagal
+
+        if (!empty($lokasi)) {
+            $coords = explode(',', $lokasi);
+
+            if (count($coords) == 2) {
+                $lat = $coords[0];
+                $lng = $coords[1];
+
+            // =========================
+            // REVERSE GEOCODING GRATIS
+            // OPENSTREETMAP
+            // =========================
+                $url = "https://nominatim.openstreetmap.org/reverse?format=json&lat=$lat&lon=$lng";
+
+                $context = stream_context_create([
+                    'http' => [
+                        'header' => "User-Agent: CI4 App\r\n"
+                    ]
+                ]);
+
+                $response = @file_get_contents($url, false, $context);
+
+                if ($response) {
+                    $data = json_decode($response, true);
+                    $alamat = $data['display_name'] ?? $lokasi;
+                }
+            }
+        }
+
+    // =========================
+    // UPLOAD FOTO
+    // =========================
         $file = $this->request->getFile('foto');
         $namaFoto = null;
 
@@ -35,12 +71,15 @@ class BuatLaporan extends BaseController
             $file->move('uploads', $namaFoto);
         }
 
+    // =========================
+    // SIMPAN KE DATABASE
+    // =========================
         $laporanModel->insert([
             'id_user'     => $id_user,
             'id_layanan'  => $this->request->getPost('id_layanan'),
             'judul'       => $this->request->getPost('judul'),
             'deskripsi'   => $this->request->getPost('deskripsi'),
-            'lokasi'      => $this->request->getPost('lokasi'),
+            'lokasi'      => $alamat, // 🔥 SUDAH JADI TEKS
             'foto'        => $namaFoto,
             'status'      => 'Menunggu'
         ]);

@@ -11,6 +11,8 @@
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <body>
 
 
@@ -87,34 +89,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     required>
             </div>
 
-            <div class="form-group">
+           <div class="form-group">
                 <label>Lokasi Kejadian <span>*</span></label>
 
-                <select name="lokasi">
-                <option>Pilih Lokasi Kejadian</option>
-
-                <option>Balaroa</option>
-                <option>Besusu Barat</option>
-                <option>Besusu Tengah</option>
-                <option>Besusu Timur</option>
-                <option>Duyu</option>
-                <option>Kabonena</option>
-                <option>Kamonji</option>
-                <option>Lere</option>
-                <option>Nunu</option>
-                <option>Palupi</option>
-                <option>Pengawu</option>
-                <option>Silae</option>
-                <option>Talise</option>
-                <option>Talise Valangguni</option>
-                <option>Tanamodindi</option>
-                <option>Tatura Selatan</option>
-                <option>Tatura Utara</option>
-                <option>Tawanjuka</option>
-                <option>Tondo</option>
-                <option>Tipo</option>
-                <option>Ujuna</option>
-                </select>
+                <div id="map" style="height:300px;"></div>
+                <input type="hidden" name="lokasi" id="lokasi">
             </div>
 
         
@@ -486,7 +465,35 @@ select option{
 }
 
 </style>
+<script>
+let map;
+let marker;
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    map = L.map('map').setView([-0.8987, 119.8707], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    map.on('click', function(e) {
+        let lat = e.latlng.lat;
+        let lng = e.latlng.lng;
+
+        // hapus marker lama
+        if (marker) {
+            map.removeLayer(marker);
+        }
+
+        // buat marker baru (PIN)
+        marker = L.marker([lat, lng]).addTo(map);
+
+        document.getElementById("lokasi").value = lat + "," + lng;
+    });
+
+});
+</script>
 </body>
 </html>
 
