@@ -28,6 +28,8 @@ class Petugas extends BaseController
         ->join('layanan_laporan', 'layanan_laporan.id_layanan = laporan.id_layanan')
         ->findAll();
 
+    $data['total'] = $laporanModel->countAllResults();
+    
     return view('petugas/laporan', $data);
     }
 
