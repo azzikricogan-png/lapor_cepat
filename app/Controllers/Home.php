@@ -31,9 +31,16 @@ class Home extends BaseController
             return redirect()->to('/login');
         }
 
+        $laporanModel = new LaporanModel();
+
+        $total_laporan = $laporanModel
+            ->where('id_user', session()->get('id_user'))
+            ->countAllResults();
+
         return view('home/profil', [
             'nama'  => session()->get('nama'),
-            'email' => session()->get('email')
+            'email' => session()->get('email'),
+            'total_laporan' => $total_laporan
         ]);
     }
 

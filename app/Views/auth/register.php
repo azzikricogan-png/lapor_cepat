@@ -49,7 +49,7 @@
                 <div class="input-group">
                     <select name="role" required>
                         <option value="">Pilih Role</option>
-                        <option value="user">Masyarakat</option>
+                        <option value="masyarakat">Masyarakat</option>
                         <option value="petugas">Petugas</option>
                     </select>
                 </div>

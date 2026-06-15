@@ -313,9 +313,9 @@ body{
 
         <div class="stat-grid">
 
-            <div class="stat-card">
+           <div class="stat-card">
                 <i class="fa fa-file-alt"></i>
-                <h2>12</h2>
+                <h2><?= $total_laporan ?? 0 ?></h2>
                 <p>Total Laporan</p>
             </div>
 

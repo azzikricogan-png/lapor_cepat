@@ -9,22 +9,42 @@ class Laporan extends BaseController
 {
     public function index()
     {
-        helper('text'); // untuk substr / character_limiter jika dipakai
+        helper('text');
 
         $model = new LaporanModel();
 
+        $id_user = session()->get('id_user');
+
+        // Data laporan user login
         $data['laporan'] = $model
             ->select('laporan.*, layanan_laporan.nama_layanan')
-            ->join('layanan_laporan', 'layanan_laporan.id_layanan = laporan.id_layanan')
+            ->join(
+                'layanan_laporan',
+                'layanan_laporan.id_layanan = laporan.id_layanan'
+            )
+            ->where('laporan.id_user', $id_user)
             ->orderBy('laporan.id_laporan', 'DESC')
             ->findAll();
 
-        // statistik (opsional tapi bagus untuk dashboard kamu)
-        $data['total_laporan'] = $model->countAll();
+        // Statistik
+        $data['total_laporan'] = $model
+            ->where('id_user', $id_user)
+            ->countAllResults();
 
-        $data['pending'] = $model->where('status', 'Pending')->countAllResults(false);
-        $data['diproses'] = $model->where('status', 'Diproses')->countAllResults(false);
-        $data['selesai'] = $model->where('status', 'Selesai')->countAllResults(false);
+        $data['menunggu'] = $model
+            ->where('id_user', $id_user)
+            ->where('status', 'Menunggu')
+            ->countAllResults();
+
+        $data['diproses'] = $model
+            ->where('id_user', $id_user)
+            ->where('status', 'Diproses')
+            ->countAllResults();
+
+        $data['selesai'] = $model
+            ->where('id_user', $id_user)
+            ->where('status', 'Selesai')
+            ->countAllResults();
 
         return view('laporan/index', $data);
     }
@@ -33,12 +53,23 @@ class Laporan extends BaseController
     {
         $model = new LaporanModel();
 
-        $data['laporan'] = $model
+        $laporan = $model
             ->select('laporan.*, layanan_laporan.nama_layanan')
-            ->join('layanan_laporan', 'layanan_laporan.id_layanan = laporan.id_layanan')
+            ->join(
+                'layanan_laporan',
+                'layanan_laporan.id_layanan = laporan.id_layanan'
+            )
             ->where('laporan.id_laporan', $id)
+            ->where('laporan.id_user', session()->get('id_user'))
             ->first();
 
-        return view('laporan/detail', $data);
+        // Jika laporan tidak ditemukan
+        if (!$laporan) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        return view('laporan/detail', [
+            'laporan' => $laporan
+        ]);
     }
 }

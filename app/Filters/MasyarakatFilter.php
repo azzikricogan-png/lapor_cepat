@@ -10,8 +10,12 @@ class MasyarakatFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('role') != 'masyarakat') {
-            return redirect()->to('/home');
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login');
+        }
+
+        if (session()->get('role') !== 'masyarakat') {
+            return redirect()->to('/login');
         }
     }
 

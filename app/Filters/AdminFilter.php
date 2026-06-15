@@ -10,8 +10,14 @@ class AdminFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
+        // Belum login
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login');
+        }
+
+        // Bukan admin
         if (session()->get('role') != 'admin') {
-            return redirect()->to('/home');
+            return redirect()->to('/login');
         }
     }
 

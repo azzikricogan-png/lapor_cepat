@@ -45,8 +45,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <div class="stat-card">
             <i class="fa-solid fa-clock"></i>
             <div>
-                <h3><?= $pending ?? 0 ?></h3>
-                <span>Pending</span>
+                <h3><?= $menunggu ?? 0 ?></h3>
+                <span>Menunggu</span>
             </div>
         </div>
 
