@@ -321,13 +321,13 @@ body{
 
             <div class="stat-card">
                 <i class="fa fa-spinner"></i>
-                <h2>3</h2>
+                <h2><?= $proses ?? 0 ?></h2>
                 <p>Diproses</p>
             </div>
 
             <div class="stat-card">
                 <i class="fa fa-check-circle"></i>
-                <h2>9</h2>
+                <h2><?= $selesai ?? 0 ?></h2>
                 <p>Selesai</p>
             </div>
 

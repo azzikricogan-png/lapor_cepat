@@ -31,19 +31,30 @@ class Home extends BaseController
             return redirect()->to('/login');
         }
 
-        $laporanModel = new LaporanModel();
+        $id_user = session()->get('id_user');
 
-        $total_laporan = $laporanModel
-            ->where('id_user', session()->get('id_user'))
+        $total_laporan = (new LaporanModel())
+            ->where('id_user', $id_user)
+            ->countAllResults();
+
+        $proses = (new LaporanModel())
+            ->where('id_user', $id_user)
+            ->where('status', 'Diproses')
+            ->countAllResults();
+
+        $selesai = (new LaporanModel())
+            ->where('id_user', $id_user)
+            ->where('status', 'Selesai')
             ->countAllResults();
 
         return view('home/profil', [
-            'nama'  => session()->get('nama'),
-            'email' => session()->get('email'),
-            'total_laporan' => $total_laporan
+            'nama'          => session()->get('nama'),
+            'email'         => session()->get('email'),
+            'total_laporan' => $total_laporan,
+            'proses'        => $proses,
+            'selesai'       => $selesai
         ]);
     }
-
     
 
     public function logout()
