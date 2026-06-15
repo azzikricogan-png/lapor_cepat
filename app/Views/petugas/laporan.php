@@ -97,9 +97,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
             <select id="statusFilter">
                 <option value="">Semua Status</option>
-                <option value="Pending">Pending</option>
+                <option value="Menunggu">Menunggu</option>
                 <option value="Diproses">Diproses</option>
                 <option value="Selesai">Selesai</option>
+                <option value="Ditolak">Ditolak</option>
             </select>
 
         </div>
