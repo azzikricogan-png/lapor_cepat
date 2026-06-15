@@ -12,12 +12,14 @@ $routes->get('/lapor', "Awalan::por");
 $routes->get('/awalan', 'Awalan::index');
 $routes->post('/awalan/login','Awalan::proses');
 
+
 #home
 $routes->get('/home', 'Home::index',[
     'filter' => ['auth','masyarakat']
 ]);
 $routes->get('/profil', 'Home::profil');
 $routes->post('/home', 'Home::laporan');
+
 
 
 # Auth
@@ -76,7 +78,10 @@ $routes->get('/admin', 'Admin::index',[
 
 
 #notifikasi
-$routes->get('/notifikasi','Notifikasi::index');
+$routes->get('/notifikasi','Notifikasi::index',[
+    'filter' => ['auth', 'masyarakat']
+]);
+$routes->get('/notifikasi/read/(:num)', 'Notifikasi::read/$1');
 
 
 

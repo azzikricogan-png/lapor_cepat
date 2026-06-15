@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\LaporanModel;
+use App\Models\NotifikasiModel;
 
 class Home extends BaseController
 {
@@ -35,6 +36,8 @@ class Home extends BaseController
             'email' => session()->get('email')
         ]);
     }
+
+    
 
     public function logout()
     {

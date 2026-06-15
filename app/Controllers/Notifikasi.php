@@ -16,4 +16,15 @@ class Notifikasi extends BaseController
 
         return view('home/notifikasi', $data);
     }
+
+    public function read($id)
+    {
+        $notifikasiModel = new NotifikasiModel();
+
+        $notifikasiModel->update($id, [
+            'status_baca' => 'sudah_dibaca'
+        ]);
+
+        return redirect()->to('/notifikasi');
+    }
 }

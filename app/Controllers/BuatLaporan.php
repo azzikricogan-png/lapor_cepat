@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\LaporanModel;
+use App\Models\NotifikasiModel;
 
 class BuatLaporan extends BaseController
 {
@@ -82,6 +83,14 @@ class BuatLaporan extends BaseController
             'lokasi'      => $alamat, // 🔥 SUDAH JADI TEKS
             'foto'        => $namaFoto,
             'status'      => 'Menunggu'
+        ]);
+
+        $notifikasiModel = new NotifikasiModel();
+        $notifikasiModel->insert([
+            'id_user'      => $id_user,
+            'pesan'        => 'Laporan Anda berhasil dikirim dan sedang menunggu verifikasi petugas.',
+            'status_baca'  => 'belum_dibaca',
+            'created_at'   => date('Y-m-d H:i:s')
         ]);
 
         return redirect()->to('/buat_laporan');

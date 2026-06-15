@@ -36,7 +36,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
             <?php foreach ($notifikasi as $n): ?>
 
-                <div class="notif-card <?= $n['status_baca'] == 0 ? 'unread' : '' ?>">
+                <div class="notif-card <?= $n['status_baca'] == 'belum_dibaca' ? 'unread' : '' ?>">
 
                     <div class="icon">
                         <i class="fa-solid fa-bell"></i>
@@ -56,7 +56,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
                     <div class="action">
 
-                        <?php if ($n['status_baca'] == 0): ?>
+                        <?php if ($n['status_baca'] == 'belum_dibaca'): ?>
 
                             <a href="<?= base_url('notifikasi/read/'.$n['id_notifikasi']) ?>" class="btn-read">
                                 Tandai Dibaca
