@@ -201,17 +201,18 @@ body{
     font-size:12px;
 }
 
+.menunggu{
+    background:#3498db;
+}
+
+.diproses{
+    background:#f39c12;
+}
+
 .selesai{
     background:#27ae60;
 }
 
-.proses{
-    background:#f39c12;
-}
-
-.verifikasi{
-    background:#3498db;
-}
 
 /* RESPONSIVE */
 
@@ -283,7 +284,7 @@ body{
 
             <div class="detail-item">
                 <h4>Nomor HP</h4>
-                <p>0812-3456-7890</p>
+                <p><?= esc($no_hp) ?></p>
             </div>
 
             <div class="detail-item">
@@ -341,20 +342,23 @@ body{
 
         <h3>Riwayat Laporan Terbaru</h3>
 
-        <div class="riwayat-card">
-            <span>Jalan berlubang di Jl. Moh. Hatta</span>
-            <span class="badge proses">Diproses</span>
-        </div>
+        <?php foreach($riwayat as $r): ?>
 
         <div class="riwayat-card">
-            <span>Sampah menumpuk di Pasar Inpres</span>
-            <span class="badge verifikasi">Verifikasi</span>
-        </div>
+            <div>
+                <strong><?= esc($r['judul']) ?></strong><br>
+                <small>
+                    <i class="fa fa-location-dot"></i>
+                    <?= esc($r['lokasi']) ?>
+                </small>
+            </div>
+            <span class="badge <?= strtolower($r['status']) ?>">
+                <?= esc($r['status']) ?>
+            </span>
 
-        <div class="riwayat-card">
-            <span>Lampu jalan mati di Talise</span>
-            <span class="badge selesai">Selesai</span>
-        </div>
+            </div>
+
+        <?php endforeach; ?>
 
     </div>
 

@@ -47,12 +47,20 @@ class Home extends BaseController
             ->where('status', 'Selesai')
             ->countAllResults();
 
+        //RIWAYAT
+        $riwayat = (new LaporanModel())
+            ->where('id_user', $id_user)
+            ->orderBy('id_laporan', 'DESC')
+            ->findAll(5);
+
         return view('home/profil', [
             'nama'          => session()->get('nama'),
             'email'         => session()->get('email'),
+            'no_hp'         => session()->get('no_hp'),
             'total_laporan' => $total_laporan,
             'proses'        => $proses,
-            'selesai'       => $selesai
+            'selesai'       => $selesai,
+            'riwayat'       => $riwayat
         ]);
     }
     
