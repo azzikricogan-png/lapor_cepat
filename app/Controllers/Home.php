@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\LaporanModel;
 use App\Models\NotifikasiModel;
+use App\Models\UserModel;
 
 class Home extends BaseController
 {
@@ -52,6 +53,12 @@ class Home extends BaseController
             ->where('id_user', $id_user)
             ->orderBy('id_laporan', 'DESC')
             ->findAll(5);
+        
+        //TANGGAL BERGABUNG
+        $userModel = new UserModel();
+
+        $user = $userModel->find($id_user);
+        $tanggal_daftar = $user['created_at'] ?? null;
 
         return view('home/profil', [
             'nama'          => session()->get('nama'),
@@ -60,7 +67,8 @@ class Home extends BaseController
             'total_laporan' => $total_laporan,
             'proses'        => $proses,
             'selesai'       => $selesai,
-            'riwayat'       => $riwayat
+            'riwayat'       => $riwayat,
+            'tanggal_daftar'=> $tanggal_daftar
         ]);
     }
     

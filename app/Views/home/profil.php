@@ -294,7 +294,7 @@ body{
 
             <div class="detail-item">
                 <h4>Tanggal Bergabung</h4>
-                <p>01 Januari 2026</p>
+                <p><?= date('d F Y', strtotime($tanggal_daftar)) ?></p>
             </div>
 
             <div class="detail-item">
