@@ -152,10 +152,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <td>
 
-        <?php if($row['status'] == 'Pending'): ?>
+        <?php if($row['status'] == 'Menunggu'): ?>
 
-            <span class="badge pending">
-                Pending
+            <span class="badge Menunggu">
+                Menunggu
             </span>
 
         <?php elseif($row['status'] == 'Diproses'): ?>
@@ -164,10 +164,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 Diproses
             </span>
 
+        <?php elseif($row['status'] == 'Selesai'): ?>
+            <span class="bage selesai">
+                Selesai
+            </span>
         <?php else: ?>
 
-            <span class="badge selesai">
-                Selesai
+            <span class="badge Ditolak">
+                Ditolak
             </span>
 
         <?php endif; ?>
@@ -190,7 +194,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             '<?= esc($row['nama_layanan']) ?>',
             '<?= esc($row['lokasi']) ?>',
             '<?= esc($row['deskripsi']) ?>',
-            '<?= esc($row['status']) ?>'
+            '<?= esc($row['status']) ?>',
+            '<?= $row['foto'] ?>'
             )">
 
             <i class="fa fa-eye"></i>
@@ -274,10 +279,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     <h3><i class="fa fa-image"></i> Foto Laporan</h3>
 
                     <img id="detailFoto"
-                        src="https://via.placeholder.com/800x400"
-                        style="width:100%;border-radius:12px;margin-top:10px;">
-
-
+                        style="width:200px;border-radius:10px;">
                 <h3>
                     <i class="fa fa-comments"></i>
                     Tanggapan Petugas
@@ -347,7 +349,8 @@ function openModal(
     layanan,
     lokasi,
     deskripsi,
-    status
+    status,
+    foto
 ){
     console.log("ID Laporan =", id_laporan);
 
@@ -360,9 +363,18 @@ function openModal(
     document.getElementById('detailDeskripsi').innerText = deskripsi;
     document.getElementById('detailStatus').innerText = status;
 
-    document.getElementById('detailModal').style.display = 'flex';
-}
+      // 🔥 INI PENTING
+    document.getElementById('detailFoto').src =
+        '<?= base_url('uploads/') ?>/' + foto;
 
+    document.getElementById('detailModal').style.display = 'flex';
+
+   
+}
+function closeModal()
+{
+    document.getElementById('detailModal').style.display = 'none';
+}
 </script>
 
 <script>
