@@ -15,7 +15,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <body>
 
-
+<?php if(session()->getFlashdata('success')) : ?>
+<div class="alert-success" id="successPopup">
+    <i class="fa-solid fa-circle-check"></i>
+    <?= session()->getFlashdata('success') ?>
+</div>
+<?php endif; ?>
 
 <div class="hero-banner">
     <h1>Layanan Pengaduan Untuk Masyarakat Palu</h1>
@@ -121,6 +126,39 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 
 <style>
+
+.alert-success{
+    position:fixed;
+    top:100px;
+    right:20px;
+    background:#27ae60;
+    color:#fff;
+    padding:15px 25px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    animation:slideIn .4s ease;
+}
+
+.alert-success i{
+    font-size:22px;
+}
+
+@keyframes slideIn{
+    from{
+        opacity:0;
+        transform:translateX(100%);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
 
 *{
     margin:0;
@@ -488,6 +526,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+</script>
+
+<script>
+setTimeout(() => {
+    const popup = document.getElementById('successPopup');
+
+    if (popup) {
+        popup.style.transition = "0.5s";
+        popup.style.opacity = "0";
+        popup.style.transform = "translateX(100%)";
+
+        setTimeout(() => {
+            popup.remove();
+        }, 500);
+    }
+}, 3000);
 </script>
 </body>
 </html>

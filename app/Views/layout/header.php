@@ -202,7 +202,6 @@
         <a href="<?= base_url('/') ?>">Beranda</a>
         <a href="<?= base_url('laporan') ?>">Laporan Saya</a>
         <a href="<?= base_url('informasi') ?>">Informasi</a>
-        <a href="<?= base_url('kontak') ?>">Kontak</a>
 
     </div>
 

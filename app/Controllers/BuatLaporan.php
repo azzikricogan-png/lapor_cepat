@@ -93,6 +93,9 @@ class BuatLaporan extends BaseController
             'created_at'   => date('Y-m-d H:i:s')
         ]);
 
+        //sukses
+        session()->setFlashdata('success', 'Laporan berhasil terkirim');
+
         return redirect()->to('/buat_laporan');
     }
 }
