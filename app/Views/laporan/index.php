@@ -69,12 +69,27 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </div>
 
     <!-- FILTER -->
+    <?php $statusAktif = $_GET['status'] ?? ''; ?>
     <div class="filter">
+        <a href="<?= base_url('laporan') ?>"
+            class="<?= $statusAktif == '' ? 'active' : '' ?>">
+            Semua
+        </a>
 
-        <a href="<?= base_url('laporan') ?>" class="active">Semua</a>
-        <a href="<?= base_url('laporan?status=Pending') ?>">Pending</a>
-        <a href="<?= base_url('laporan?status=Diproses') ?>">Diproses</a>
-        <a href="<?= base_url('laporan?status=Selesai') ?>">Selesai</a>
+        <a href="<?= base_url('laporan?status=Menunggu') ?>"
+            class="<?= $statusAktif == 'Menunggu' ? 'active' : '' ?>">
+            Menunggu
+        </a>
+
+        <a href="<?= base_url('laporan?status=Diproses') ?>"
+            class="<?= $statusAktif == 'Diproses' ? 'active' : '' ?>">
+            Diproses
+        </a>
+
+        <a href="<?= base_url('laporan?status=Selesai') ?>"
+            class="<?= $statusAktif == 'Selesai' ? 'active' : '' ?>">
+            Selesai
+        </a>
 
     </div>
 
@@ -138,10 +153,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
                         <a href="<?= base_url('laporan/detail/'.$row['id_laporan']) ?>" class="btn-blue">
                             Detail
-                        </a>
-
-                        <a href="<?= base_url('laporan/edit/'.$row['id_laporan']) ?>" class="btn-orange">
-                            Edit
                         </a>
 
                     </div>

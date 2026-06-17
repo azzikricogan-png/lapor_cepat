@@ -19,8 +19,9 @@ $routes->get('/home', 'Home::index',[
 ]);
 $routes->get('/profil', 'Home::profil');
 $routes->post('/home', 'Home::laporan');
-
-
+$routes->post('/profil/update', 'Home::updateProfil');
+$routes->post('profil/password', 'Home::ubahPassword');
+$routes->get('laporan/detail/(:num)', 'Laporan::detail/$1');
 
 # Auth
 #login

@@ -274,7 +274,7 @@
     <button type="button" class="profile-btn" onclick="toggleMenu()">
 
         <div class="profile-avatar">
-            <img src="<?= base_url('img/profil.png') ?>" alt="Profile">
+            <img src="<?= base_url('uploads/' . (session()->get('foto') ?? 'default.png')) ?>" alt="Profile">
         </div>
     </button>
 

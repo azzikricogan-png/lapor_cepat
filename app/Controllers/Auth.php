@@ -39,6 +39,7 @@ class Auth extends BaseController
                 'email'     => $user['email'],
                 'no_hp'     => $user['no_hp'],
                 'role'      => $user['role'],
+                'foto'      => $user['foto'] ?? 'default.png',
                 'logged_in' => true
             ]);
 
@@ -120,6 +121,6 @@ class Auth extends BaseController
     {
         session()->destroy();
 
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 }

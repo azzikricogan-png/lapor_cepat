@@ -15,33 +15,48 @@ class Laporan extends BaseController
 
         $id_user = session()->get('id_user');
 
-        // Data laporan user login
+        $status = $this->request->getGet('status'); // 👈 TAMBAH INI
+        $keyword = $this->request->getGet('keyword');
+        // ======================
+        // QUERY LAPORAN (FILTER)
+        // ======================
+        $model->select('laporan.*, layanan_laporan.nama_layanan')
+            ->join('layanan_laporan', 'layanan_laporan.id_layanan = laporan.id_layanan')
+            ->where('laporan.id_user', $id_user);
+
+        if ($status) {
+            $model->where('laporan.status', $status);
+        }
+
+        // 🔥 FIX INI
+        if (!empty($keyword)) {
+            $model->groupStart()
+                ->like('laporan.judul', $keyword)
+                ->orLike('laporan.lokasi', $keyword)
+                ->orLike('laporan.deskripsi', $keyword)
+            ->groupEnd();
+        }
+
         $data['laporan'] = $model
-            ->select('laporan.*, layanan_laporan.nama_layanan')
-            ->join(
-                'layanan_laporan',
-                'layanan_laporan.id_layanan = laporan.id_layanan'
-            )
-            ->where('laporan.id_user', $id_user)
             ->orderBy('laporan.id_laporan', 'DESC')
             ->findAll();
 
         // Statistik
-        $data['total_laporan'] = $model
+        $data['total_laporan'] = (new LaporanModel())
             ->where('id_user', $id_user)
             ->countAllResults();
 
-        $data['menunggu'] = $model
+        $data['menunggu'] = (new LaporanModel())
             ->where('id_user', $id_user)
             ->where('status', 'Menunggu')
             ->countAllResults();
 
-        $data['diproses'] = $model
+        $data['diproses'] = (new LaporanModel())
             ->where('id_user', $id_user)
             ->where('status', 'Diproses')
             ->countAllResults();
 
-        $data['selesai'] = $model
+        $data['selesai'] = (new LaporanModel())
             ->where('id_user', $id_user)
             ->where('status', 'Selesai')
             ->countAllResults();

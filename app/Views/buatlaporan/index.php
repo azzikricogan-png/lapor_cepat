@@ -32,30 +32,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         <form action="<?= base_url('buat_laporan/simpan') ?>" method="post" enctype="multipart/form-data">
 
-
-
-
-
-
             <div class="form-group">
                 <label>Kategori Laporan</label>
 
                 <select name="id_layanan">
                     <option value="">Pilih Kategori Laporan</option>
-                    <option value="17">Jalan Rusak</option>
-                    <option value="18">Lampu Jalan</option>
-                    <option value="19">Sampah</option>
-                    <option value="20">Drainase/Banjir</option>
-                    <option value="21">Air Bersih</option>
-                    <option value="22">Kependudukan (KTP, KK, Akta)</option>
-                    <option value="23">Pendidikan</option>
-                    <option value="24">Kesehatan</option>
-                    <option value="25">Perizinan</option>
-                    <option value="26">Ketertiban Umum</option>
-                    <option value="27">Kebakaran</option>
-                    <option value="28">Bencana Alam</option>
-                    <option value="29">Fasilitas Umum</option>
-                    <option value="30">Lainnya</option>
+                    <option value="1">Jalan Rusak</option>
+                    <option value="2">Lampu Jalan</option>
+                    <option value="3">Sampah</option>
+                    <option value="4">Drainase/Banjir</option>
+                    <option value="5">Air Bersih</option>
+                    <option value="6">Kependudukan (KTP, KK, Akta)</option>
+                    <option value="7">Pendidikan</option>
+                    <option value="8">Kesehatan</option>
+                    <option value="9">Perizinan</option>
+                    <option value="10">Ketertiban Umum</option>
+                    <option value="11">Kebakaran</option>
+                    <option value="12">Bencana Alam</option>
+                    <option value="13">Fasilitas Umum</option>
+                    <option value="14">Lainnya</option>
                 </select>
             </div>
 

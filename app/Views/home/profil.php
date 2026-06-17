@@ -214,6 +214,50 @@ body{
 }
 
 
+.modal{
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.5);
+    z-index:999;
+}
+
+.modal-content{
+    background:#fff;
+    width:90%;
+    max-width:500px;
+    margin:80px auto;
+    padding:25px;
+    border-radius:15px;
+}
+
+.close{
+    float:right;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.modal input{
+    width:100%;
+    padding:10px;
+    margin:8px 0 15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.modal button{
+    width:100%;
+    padding:12px;
+    background:#163b79;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
 /* RESPONSIVE */
 
 @media(max-width:768px){
@@ -236,6 +280,8 @@ body{
 </style>
 </head>
 
+
+
 <body>
 
 <div class="profile-header"></div>
@@ -247,7 +293,7 @@ body{
         <div class="profile-top">
 
             <div class="profile-photo">
-                <img src="https://i.pravatar.cc/300" alt="">
+                <img src="<?= base_url('uploads/' . ($foto ?? 'default.png')) ?>" alt="">
             </div>
 
             <div class="profile-info">
@@ -260,11 +306,11 @@ body{
 
                 <div class="action-btn">
 
-                    <a href="#" class="btn btn-edit">
+                    <a href="#" class="btn btn-edit" onclick="openModal()">
                         <i class="fa fa-pen"></i> Edit Profil
                     </a>
 
-                    <a href="#" class="btn btn-password">
+                    <a href="#" class="btn btn-password" onclick="openPasswordModal()">
                         <i class="fa fa-lock"></i> Ubah Password
                     </a>
 
@@ -289,17 +335,12 @@ body{
 
             <div class="detail-item">
                 <h4>Alamat</h4>
-                <p>Kota Palu, Sulawesi Tengah</p>
+                <p><?= esc($alamat) ?></p>
             </div>
 
             <div class="detail-item">
                 <h4>Tanggal Bergabung</h4>
                 <p><?= date('d F Y', strtotime($tanggal_daftar)) ?></p>
-            </div>
-
-            <div class="detail-item">
-                <h4>Status Akun</h4>
-                <p>Aktif</p>
             </div>
 
         </div>
@@ -363,6 +404,97 @@ body{
     </div>
 
 </div>
+
+
+<!-- update profil -->
+<div id="editModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2>Edit Profil</h2>
+
+        <form action="<?= base_url('profil/update') ?>" method="post" enctype="multipart/form-data">
+
+            <label>Nama</label>
+            <input type="text" name="nama"
+                   value="<?= esc($nama) ?>">
+
+            <label>Alamat</label>
+            <input type="text" name="alamat"
+                value="<?= esc($alamat ?? '') ?>">
+            
+            <label>Foto Profil</label>
+            <input type="file" name="foto" accept="image/*">
+
+            <label>Email</label>
+            <input type="email" name="email"
+                   value="<?= esc($email) ?>">
+
+            <label>No HP</label>
+            <input type="text" name="no_hp"
+                   value="<?= esc($no_hp) ?>">
+
+            <button type="submit">Simpan Perubahan</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+    <!-- UBAH PASSWORD-->
+<div id="passwordModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closePasswordModal()">&times;</span>
+
+        <h2>Ubah Password</h2>
+
+        <form action="<?= base_url('profil/password') ?>" method="post">
+
+            <label>Password Lama</label>
+            <input type="password" name="password_lama" required>
+
+            <label>Password Baru</label>
+            <input type="password" name="password_baru" required>
+
+            <label>Konfirmasi Password Baru</label>
+            <input type="password" name="konfirmasi_password" required>
+
+            <button type="submit">Simpan Password</button>
+
+        </form>
+    </div>
+</div>
+
+<script>
+function openModal() {
+    document.getElementById('editModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('editModal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    let modal = document.getElementById('editModal');
+
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+
+<script>
+function openPasswordModal() {
+    document.getElementById('passwordModal').style.display = 'block';
+}
+
+function closePasswordModal() {
+    document.getElementById('passwordModal').style.display = 'none';
+}
+</script>
 
 </body>
 </html>

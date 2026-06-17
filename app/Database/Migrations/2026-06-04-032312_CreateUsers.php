@@ -18,6 +18,18 @@ class CreateUsers extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],
+
+            'alamat' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
+
+            'foto' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+
             'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
