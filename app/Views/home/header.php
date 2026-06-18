@@ -305,7 +305,6 @@
     <div class="profile-menu">
 
     <button type="button" class="profile-btn" onclick="toggleMenu()">
-
         <div class="profile-avatar">
 
             <?php if (!empty(session()->get('foto')) && session()->get('foto') != 'default.png') : ?>

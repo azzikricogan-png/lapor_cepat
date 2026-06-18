@@ -119,7 +119,7 @@ class Home extends BaseController
             'nama'  => $data['nama'],
             'email' => $data['email'],
             'no_hp' => $data['no_hp'],
-            'foto'  => $namaFoto['foto'] ?? session()->get('foto')
+            'foto'  => $namaFoto ?? session()->get('foto')
         ]);
 
         return redirect()->to('/profil')
