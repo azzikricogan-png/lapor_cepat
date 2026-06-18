@@ -70,7 +70,8 @@ $routes->post('/petugas/updateProfil', 'Petugas::updateProfil');
 $routes->get('petugas/laporan', 'Petugas::laporan');
 $routes->post('petugas/updateStatus', 'Petugas::updateStatus');
 $routes->get('petugas/notifikasi', 'Petugas::notifikasi');
-
+$routes->post('petugas/tanggapan', 'Petugas::simpanTanggapan');
+$routes->get('petugas/notifikasi/read/(:num)', 'Petugas::readNotifikasi/$1');
 
 #Admin
 $routes->get('/admin', 'Admin::index',[

@@ -85,10 +85,20 @@ class BuatLaporan extends BaseController
             'status'      => 'Menunggu'
         ]);
 
+        // Notifikasi untuk pelapor
         $notifikasiModel = new NotifikasiModel();
+
         $notifikasiModel->insert([
             'id_user'      => $id_user,
             'pesan'        => 'Laporan Anda berhasil dikirim dan sedang menunggu verifikasi petugas.',
+            'status_baca'  => 'belum_dibaca',
+            'created_at'   => date('Y-m-d H:i:s')
+        ]);
+
+        // Notifikasi untuk petugas
+        $notifikasiModel->insert([
+            'id_user'      => $id_user,
+            'pesan'        => 'Laporan baru masuk: '.$this->request->getPost('judul'),
             'status_baca'  => 'belum_dibaca',
             'created_at'   => date('Y-m-d H:i:s')
         ]);

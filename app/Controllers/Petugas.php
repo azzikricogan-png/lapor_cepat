@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\LaporanModel;
 use App\Models\LayananLaporanModel;
+use App\Models\TanggapanModel;
+use App\Models\notifikasiModel;
 
 class Petugas extends BaseController
 {
@@ -76,7 +78,14 @@ class Petugas extends BaseController
 
     public function notifikasi()
     {
-        return view('petugas/notifikasi');
+        $notifikasiModel = new \App\Models\NotifikasiModel();
+
+        $data['notifikasi'] = $notifikasiModel
+        ->where('status_baca', 'belum_dibaca')
+        ->orderBy('created_at', 'DESC')
+        ->findAll();
+
+        return view('petugas/notifikasi', $data);
     }
 
     public function updateProfil()
@@ -116,5 +125,46 @@ class Petugas extends BaseController
 
         return redirect()->to('/petugas/profil')
                          ->with('success', 'Profil berhasil diperbarui');
+    }
+    
+    public function simpanTanggapan()
+    {  
+        // 🔐 hanya petugas
+        if (session()->get('role') !== 'petugas') {
+            return redirect()->back()->with('error', 'Akses ditolak');
+        }
+
+        $tanggapanModel = new TanggapanModel();
+
+        $isi = $this->request->getPost('isi_tanggapan');
+
+        if (!$isi) {
+            return redirect()->back()->with('error', 'Tanggapan tidak boleh kosong');
+        }
+
+        $data = [
+            'id_laporan'    => $this->request->getPost('id_laporan'),
+            'id_user'       => session()->get('id_user'),
+            'isi_tanggapan' => $isi,
+        ];
+
+        $tanggapanModel->insert($data);
+
+        return redirect()->to('/petugas/laporan')
+                        ->with('success', 'Tanggapan berhasil dikirim');
+    }
+
+
+    public function readNotifikasi($id)
+    {
+        $notifikasiModel = new NotifikasiModel();
+
+        $notifikasiModel->update($id, [
+        'status_baca' => 'sudah_dibaca'
+    ]);
+
+
+
+    return redirect()->to('/petugas/notifikasi');
     }
 }

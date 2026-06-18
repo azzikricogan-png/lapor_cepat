@@ -12,6 +12,8 @@ class Notifikasi extends BaseController
 
         $data['notifikasi'] = $notifikasiModel
             ->where('id_user', session()->get('id_user'))
+            ->where('status_baca', 'belum_dibaca')
+            ->orderBy('created_at', 'DESC')
             ->findAll();
 
         return view('home/notifikasi', $data);

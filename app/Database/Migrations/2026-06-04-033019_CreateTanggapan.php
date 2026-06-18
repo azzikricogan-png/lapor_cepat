@@ -18,7 +18,7 @@ class CreateTanggapan extends Migration
                 'type' => 'INT',
                 'unsigned' => true,
             ],
-            'id_petugas' => [
+            'id_user' => [
                 'type' => 'INT',
                 'unsigned' => true,
             ],

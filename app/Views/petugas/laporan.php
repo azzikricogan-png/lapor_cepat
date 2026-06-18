@@ -287,10 +287,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     Tanggapan Petugas
                 </h3>
 
-                <form action="#" method="post">
-
+                <form action="<?= base_url('petugas/tanggapan') ?>" method="post">
+                    <input type="hidden" name="id_laporan" id="id_laporan_tanggapan">
                     <textarea
                         name="isi_tanggapan"
+                        id="isi_tanggapan"
                         rows="5"
                         placeholder="Tulis tanggapan untuk laporan ini..."
                     ></textarea>
@@ -344,6 +345,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <script>
 
+// ======================
+// OPEN MODAL DETAIL
+// ======================
 function openModal(
     id_laporan,
     judul,
@@ -353,11 +357,14 @@ function openModal(
     deskripsi,
     status,
     foto
-){
+) {
     console.log("ID Laporan =", id_laporan);
 
+    // isi hidden input untuk form
     document.getElementById('id_laporan').value = id_laporan;
+    document.getElementById('id_laporan_tanggapan').value = id_laporan;
 
+    // isi detail modal
     document.getElementById('detailJudul').innerText = judul;
     document.getElementById('detailPelapor').innerText = pelapor;
     document.getElementById('detailLayanan').innerText = layanan;
@@ -365,43 +372,58 @@ function openModal(
     document.getElementById('detailDeskripsi').innerText = deskripsi;
     document.getElementById('detailStatus').innerText = status;
 
-      // 🔥 INI PENTING
+    // tampilkan foto
     document.getElementById('detailFoto').src =
         '<?= base_url('uploads/') ?>/' + foto;
 
+    // tampilkan modal
     document.getElementById('detailModal').style.display = 'flex';
-
-   
 }
-function closeModal()
-{
+
+
+// ======================
+// CLOSE MODAL
+// ======================
+function closeModal() {
     document.getElementById('detailModal').style.display = 'none';
 }
-</script>
 
-<script>
 
-document
-.getElementById("searchInput")
-.addEventListener("keyup", function(){
+// ======================
+// SEARCH FILTER (REALTIME)
+// ======================
 
-    let filter =
-        this.value.toLowerCase();
+// pakai input di search box (yang benar ada di input keyword)
+document.querySelector("input[name='keyword']").addEventListener("keyup", function () {
 
-    let rows =
-        document.querySelectorAll(
-            "#laporanTable tbody tr"
-        );
+    let filter = this.value.toLowerCase();
+    let rows = document.querySelectorAll("#laporanTable tbody tr");
 
-    rows.forEach(function(row){
+    rows.forEach(function (row) {
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(filter) ? "" : "none";
+    });
 
-        let text =
-            row.innerText.toLowerCase();
+});
 
-        row.style.display =
-            text.includes(filter)
-            ? ""
-            : "none";
+
+// ======================
+// STATUS FILTER
+// ======================
+document.getElementById("statusFilter").addEventListener("change", function () {
+
+    let status = this.value;
+    let rows = document.querySelectorAll("#laporanTable tbody tr");
+
+    rows.forEach(function (row) {
+
+        let cell = row.cells[5].innerText.trim();
+
+        if (status === "" || cell === status) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
 
     });
 

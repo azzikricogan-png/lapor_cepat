@@ -15,7 +15,7 @@ class TanggapanModel extends Model
 
     protected $allowedFields = [
         'id_laporan',
-        'id_petugas',
+        'id_user',
         'isi_tanggapan'
     ];
 
