@@ -63,17 +63,43 @@ class Petugas extends BaseController
 
     public function updateStatus()
     {
-    $laporanModel = new \App\Models\LaporanModel();
+        $laporanModel    = new LaporanModel();
+        $notifikasiModel = new NotifikasiModel();
 
-    $id_laporan = $this->request->getPost('id_laporan');
-    $status     = $this->request->getPost('status');
+        $id_laporan = $this->request->getPost('id_laporan');
+        $status     = $this->request->getPost('status');
 
-    $laporanModel->update($id_laporan, [
+        // Ambil data laporan
+        $laporan = $laporanModel->find($id_laporan);
+
+        // Update status laporan
+        $laporanModel->update($id_laporan, [
         'status' => $status
-    ]);
+        ]);
 
-    return redirect()->to('/petugas/laporan')
-                     ->with('success', 'Status berhasil diperbarui');
+        // Kirim notifikasi ke pemilik laporan
+        if ($laporan) {
+
+            if ($status == 'Diproses') {
+                $pesan = 'Laporan Anda sedang diproses oleh petugas.';
+            } elseif ($status == 'Selesai') {
+                $pesan = 'Laporan Anda telah selesai ditangani.';
+            } elseif ($status == 'Ditolak') {
+                $pesan = 'Laporan Anda ditolak oleh petugas.';
+            } else {
+                $pesan = 'Status laporan Anda diperbarui menjadi '.$status;
+            }
+
+            $notifikasiModel->insert([
+                'id_user'      => $laporan['id_user'],
+                'pesan'        => $pesan,
+                'status_baca'  => 'belum_dibaca',
+                'created_at'   => date('Y-m-d H:i:s')
+            ]);
+        }
+
+        return redirect()->to('/petugas/laporan')
+                        ->with('success', 'Status berhasil diperbarui');
     }
 
     public function notifikasi()
