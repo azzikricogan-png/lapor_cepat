@@ -182,6 +182,39 @@
 }
 
 
+.profile-avatar{
+    position:relative;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.profile-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.profile-avatar i{
+    font-size:18px;
+    color:#002b78;
+}
+
+.profile-avatar{
+    background:#ff9735;
+}
+
+.profile-avatar i{
+    color:white;
+}
+
 .dropdown-menu{
     position:absolute;
     top:60px;
@@ -274,7 +307,17 @@
     <button type="button" class="profile-btn" onclick="toggleMenu()">
 
         <div class="profile-avatar">
-            <img src="<?= base_url('uploads/' . (session()->get('foto') ?? 'default.png')) ?>" alt="Profile">
+
+            <?php if (!empty(session()->get('foto')) && session()->get('foto') != 'default.png') : ?>
+
+                <img src="<?= base_url('uploads/' . session()->get('foto')) ?>" alt="Profile">
+
+            <?php else : ?>
+
+                <i class="fa-solid fa-user"></i>
+
+            <?php endif; ?>
+
         </div>
     </button>
 

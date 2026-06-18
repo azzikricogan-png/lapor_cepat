@@ -158,6 +158,32 @@ body{
     box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
+.profile-photo{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    overflow:hidden;
+    border:5px solid #fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#163b79;
+}
+
+.profile-photo i{
+    font-size:60px;
+    color:white;
+}
+
+.profile-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
 .stat-card i{
     font-size:30px;
     margin-bottom:10px;
@@ -292,8 +318,18 @@ body{
 
         <div class="profile-top">
 
-            <div class="profile-photo">
-                <img src="<?= base_url('uploads/' . ($foto ?? 'default.png')) ?>" alt="">
+           <div class="profile-photo">
+
+                <?php if (!empty($foto) && $foto != 'default.png') : ?>
+
+                    <img src="<?= base_url('uploads/' . $foto) ?>" alt="Foto Profil">
+
+                <?php else : ?>
+
+                    <i class="fa-solid fa-user"></i>
+
+                <?php endif; ?>
+
             </div>
 
             <div class="profile-info">

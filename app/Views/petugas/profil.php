@@ -43,7 +43,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <div class="profile-card">
 
             <div class="avatar">
+
+            <?php if (!empty(session()->get('foto')) && session()->get('foto') != 'default.png') : ?>
+
+            <img
+                src="<?= base_url('uploads/' . session()->get('foto')) ?>"
+                alt="Foto Profil">
+
+            <?php else : ?>
+
                 <i class="fa-solid fa-user"></i>
+
+            <?php endif; ?>
+
             </div>
 
             <h3><?= session()->get('nama') ?></h3>
@@ -125,7 +137,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         </div>
 
-        <form action="<?= base_url('petugas/updateProfil') ?>" method="post">
+       <form action="<?= base_url('petugas/updateProfil') ?>" method="post" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label>Nama</label>
@@ -155,6 +167,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     name="no_hp"
                     value="<?= session()->get('no_hp') ?>"
                     required>
+            </div>
+
+            <div class="form-group">
+                <label>Foto Profil</label>
+
+                <input
+                    type="file"
+                    name="foto"
+                    accept="image/*">
             </div>
 
             <div class="modal-footer">
@@ -295,6 +316,14 @@ justify-content:center;
 align-items:center;
 font-size:42px;
 color:white;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
 }
 
 .profile-card h3{

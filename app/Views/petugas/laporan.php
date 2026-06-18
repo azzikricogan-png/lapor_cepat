@@ -50,8 +50,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             </div>
 
             <div class="info">
-                <h3><?= $pending ?? 0 ?></h3>
-                <p>Pending</p>
+                <h3><?= $menunggu ?? 0 ?></h3>
+                <p>Menunggu</p>
             </div>
         </div>
 
@@ -82,16 +82,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     <!-- FILTER -->
     <div class="filter-box">
 
-        <div class="search-box">
+        <form method="get" action="<?= base_url('petugas/laporan') ?>" class="search-box">
 
             <i class="fa fa-search"></i>
 
             <input
                 type="text"
-                placeholder="Cari laporan..."
-                id="searchInput">
+                name="keyword"
+                placeholder="Cari judul, pelapor, atau lokasi..."
+                value="<?= esc($_GET['keyword'] ?? '') ?>">
 
-        </div>
+        </form>
 
         <div class="filter-right">
 
