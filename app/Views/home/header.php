@@ -332,7 +332,7 @@
         <a href="<?= base_url('logout') ?>"
             class="logout"
             onclick="return confirm('Apakah Anda yakin ingin keluar?')">
-            <i class="fa fa-right-from-bracket"></i> Logout
+            <i class="fa fa-right-from-bracket"></i> Keluar
         </a>
     </div>
 </div>
