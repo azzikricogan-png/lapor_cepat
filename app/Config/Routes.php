@@ -77,6 +77,10 @@ $routes->get('petugas/notifikasi/read/(:num)', 'Petugas::readNotifikasi/$1');
 $routes->get('/admin', 'Admin::index',[
     'filter' => ['auth','admin']
 ]);
+$routes->get('/admin/laporan', 'Admin::laporan');
+$routes->get('/admin/user', 'Admin::user');
+$routes->get('/admin/notifikasi', 'Admin::notifikasi');
+$routes->get('admin/user/hapus/(:num)', 'Admin::hapusUser/$1');
 
 
 #notifikasi

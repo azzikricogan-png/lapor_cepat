@@ -46,7 +46,9 @@ $current = uri_string();
         <i class="fa fa-bell"></i> Notifikasi
     </a>
 
-    <a href="<?= base_url('logout') ?>" class="logout">
+    <a href="<?= base_url('logout') ?>"
+        class="logout"
+        onclick="return confirm('Apakah Anda yakin ingin keluar?')">
         <i class="fa fa-right-from-bracket"></i> Logout
     </a>
 
@@ -63,9 +65,9 @@ $current = uri_string();
         <a href="<?= base_url('admin/notifikasi') ?>" class="notif">
             <i class="fa fa-bell"></i>
 
-            <?php if (!empty($notifikasi)) { ?>
-                <span><?= count(array_filter($notifikasi, fn($n)=>($n['status_baca']??0)==0)) ?></span>
-            <?php } ?>
+            <?php if($jumlah_notifikasi > 0): ?>
+                <span><?= $jumlah_notifikasi ?></span>
+            <?php endif; ?>
         </a>
 
         <div class="profile">
@@ -83,7 +85,7 @@ $current = uri_string();
     <div class="card blue">
         <i class="fa fa-file"></i>
         <div>
-            <h3><?= count($laporan ?? []) ?></h3>
+            <h3><?= $total ?></h3>
             <p>Laporan</p>
         </div>
     </div>
@@ -91,15 +93,15 @@ $current = uri_string();
     <div class="card orange">
         <i class="fa fa-clock"></i>
         <div>
-            <h3><?= count(array_filter($laporan ?? [], fn($l)=>($l['status']??'')=='Pending')) ?></h3>
-            <p>Pending</p>
+            <h3><?= $menunggu ?></h3>
+            <p>Menunggu</p>
         </div>
     </div>
 
     <div class="card green">
         <i class="fa fa-gear"></i>
         <div>
-            <h3><?= count(array_filter($laporan ?? [], fn($l)=>($l['status']??'')=='Diproses')) ?></h3>
+            <h3><?= $diproses ?></h3>
             <p>Diproses</p>
         </div>
     </div>
@@ -107,7 +109,7 @@ $current = uri_string();
     <div class="card red">
         <i class="fa fa-check"></i>
         <div>
-            <h3><?= count(array_filter($laporan ?? [], fn($l)=>($l['status']??'')=='Selesai')) ?></h3>
+            <h3><?= $selesai ?></h3>
             <p>Selesai</p>
         </div>
     </div>
@@ -123,8 +125,23 @@ $current = uri_string();
         <h3>Data Laporan Masuk</h3>
 
         <form method="GET" class="search">
-            <input type="text" name="keyword" placeholder="Cari laporan...">
-            <button><i class="fa fa-search"></i></button>
+            <input
+                type="text"
+                name="keyword"
+                placeholder="Cari judul, layanan, lokasi, status..."
+                value="<?= esc($_GET['keyword'] ?? '') ?>">
+
+            <?php if (!empty($_GET['status'])) : ?>
+                <input
+                    type="hidden"
+                    name="status"
+                    value="<?= esc($_GET['status']) ?>">
+            <?php endif; ?>
+
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+
         </form>
 
     </div>
@@ -133,7 +150,7 @@ $current = uri_string();
     <div class="filter">
 
         <a href="<?= base_url('admin') ?>">Semua</a>
-        <a href="<?= base_url('admin?status=Pending') ?>">Pending</a>
+        <a href="<?= base_url('admin?status=menunggu') ?>">Menunggu</a>
         <a href="<?= base_url('admin?status=Diproses') ?>">Diproses</a>
         <a href="<?= base_url('admin?status=Selesai') ?>">Selesai</a>
 
@@ -150,7 +167,6 @@ $current = uri_string();
                 <th>Lokasi</th>
                 <th>Status</th>
                 <th>Tanggal</th>
-                <th>Aksi</th>
             </tr>
 
             <?php if (!empty($laporan)) { ?>
@@ -173,22 +189,6 @@ $current = uri_string();
 
                         <td>
                             <?= date('d M Y', strtotime($l['created_at'] ?? date('Y-m-d'))) ?>
-                        </td>
-
-                        <td class="aksi">
-
-                            <a href="<?= base_url('admin/detail/'.$l['id_laporan']) ?>" class="btn blue">
-                                Detail
-                            </a>
-
-                            <a href="<?= base_url('admin/proses/'.$l['id_laporan']) ?>" class="btn orange">
-                                Proses
-                            </a>
-
-                            <a href="<?= base_url('admin/selesai/'.$l['id_laporan']) ?>" class="btn green">
-                                Selesai
-                            </a>
-
                         </td>
 
                     </tr>
@@ -516,6 +516,7 @@ overflow-x:auto;
 
 table{
 width:100%;
+table-layout:fixed;
 border-collapse:collapse;
 background:white;
 border-radius:10px;
@@ -533,6 +534,9 @@ td{
 padding:10px;
 font-size:13px;
 border-bottom:1px solid #eee;
+overflow:hidden;
+text-overflow:ellipsis;
+white-spice:nowrap;
 }
 
 .badge{

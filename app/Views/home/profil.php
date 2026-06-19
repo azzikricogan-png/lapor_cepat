@@ -105,8 +105,23 @@ body{
     background:#f39c12;
 }
 
-.btn-logout{
+.logout{
     background:#e74c3c;
+    color:white !important;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:10px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+    transition:.3s;
+    border:none;
+}
+
+.logout:hover{
+    background:#b91c1c;
+    transform:translateY(-2px);
 }
 
 /* DETAIL */
@@ -350,8 +365,10 @@ body{
                         <i class="fa fa-lock"></i> Ubah Password
                     </a>
 
-                    <a href="/logout" class="btn btn-logout">
-                        <i class="fa fa-sign-out-alt"></i> Logout
+                    <a href="<?= base_url('logout') ?>"
+                        class="logout"
+                        onclick="return confirm('Apakah Anda yakin ingin keluar?')">
+                        <i class="fa fa-right-from-bracket"></i> Logout
                     </a>
 
                 </div>

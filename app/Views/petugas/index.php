@@ -42,7 +42,9 @@ $selesai  = $selesai ?? 0;
     </a>
 
 
-    <a href="<?= base_url('logout') ?>" class="logout">
+    <a href="<?= base_url('logout') ?>"
+        class="logout"
+        onclick="return confirm('Apakah Anda yakin ingin keluar?')">
         <i class="fa fa-right-from-bracket"></i> Logout
     </a>
 

@@ -325,12 +325,14 @@
             <i class="fa-solid fa-user"></i> Profil Saya
         </a>
 
-<a href="<?= base_url('/notifikasi') ?>">
-    <i class="fa-solid fa-bell" style="color: #f4b400;"></i>
-    Notifikasi
-</a>
-        <a href="<?= base_url('logout') ?>" class="logout">
-            <i class="fa-solid fa-right-from-bracket"></i> Logout
+        <a href="<?= base_url('/notifikasi') ?>">
+            <i class="fa-solid fa-bell" style="color: #f4b400;"></i>
+            Notifikasi
+        </a>
+        <a href="<?= base_url('logout') ?>"
+            class="logout"
+            onclick="return confirm('Apakah Anda yakin ingin keluar?')">
+            <i class="fa fa-right-from-bracket"></i> Logout
         </a>
     </div>
 </div>
