@@ -155,6 +155,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                             Detail
                         </a>
 
+                        <a href="<?= base_url('laporan/hapus/'.$row['id_laporan']) ?>" class="btn-merah"
+                            onclick="return confirm('Yakin ingin menghapus laporan ini ? ')">
+                            hapus
+                        </a>
+
                     </div>
 
                 </div>
@@ -381,6 +386,15 @@ padding:8px 14px;
 border-radius:10px;
 text-decoration:none;
 font-size:12px;
+}
+
+.btn-merah{
+    background:#800000;
+    color:#fff;
+    padding:8px 14px;
+    border-radius: 10px;
+    text-decoration:none;
+    font-size:12px;
 }
 
 .btn-orange{

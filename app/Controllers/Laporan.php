@@ -87,4 +87,14 @@ class Laporan extends BaseController
             'laporan' => $laporan
         ]);
     }
+
+    public function hapus($id)
+    {
+        $laporanModel = new \App\Models\LaporanModel();
+
+        $laporanModel->delete($id);
+
+        return redirect()->to('/laporan')
+                    ->with('success', 'Laporan berhasil dihapus');
+}
 }

@@ -40,6 +40,7 @@ $routes->get('auth/google/callback', 'Auth::googleCallback');
 $routes->get('/laporan', 'Laporan::index',[
     'filter' => ['auth', 'masyarakat']
 ]);
+$routes->get('laporan/hapus/(:num)', 'Laporan::hapus/$1');
 
 
 #Buatlaporan
