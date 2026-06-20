@@ -11,6 +11,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <body>
 
+<?php if(session()->getFlashdata('error')): ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+Swal.fire({
+    icon: 'error',
+    title: 'Login Gagal',
+    text: '<?= session()->getFlashdata('error') ?>',
+    confirmButtonColor: '#002b78',
+    confirmButtonText: 'OK'
+});
+
+</script>
+<?php endif; ?>
+
 <div class="container">
 
     <!-- KIRI -->
