@@ -71,8 +71,32 @@ $current = uri_string();
         </a>
 
         <div class="profile">
-            <div class="avatar">A</div>
-            <span>Admin</span>
+
+            <div class="avatar">
+                <?= strtoupper(substr(session('nama'), 0, 1)) ?>
+            </div>
+
+                <span>
+                    <?= session('nama') ?>
+                        <i class="fa fa-chevron-down"></i>
+                </span>
+
+            <div class="profile-menu">
+
+                <a href="<?= base_url('admin') ?>">
+                    <i class="fa fa-home"></i> Dashboard
+                </a>
+
+                <a href="<?= base_url('admin/ganti-password') ?>">
+                    <i class="fa fa-lock"></i> Ganti Password
+                </a>
+
+                <a href="<?= base_url('logout') ?>">
+                    <i class="fa fa-right-from-bracket"></i> Logout
+                </a>
+
+            </div>
+
         </div>
 
     </div>
@@ -214,7 +238,7 @@ $current = uri_string();
 <!-- ================= USER TERBARU ================= -->
 <div class="section-box">
 
-    <h3>User Terbaru</h3>
+    <h3>User</h3>
 
     <div class="user-list">
 
@@ -298,6 +322,56 @@ body{
 background:#f4f6fb;
 display:flex;
 }
+
+/* PROFILE */
+.profile{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.profile span{
+    font-weight:600;
+    color:#333;
+}
+
+/* MENU DROPDOWN */
+.profile-menu{
+    display:none;
+    position:absolute;
+    top:50px;
+    right:0;
+    width:200px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    overflow:hidden;
+    z-index:1000;
+}
+
+.profile-menu a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 15px;
+    color:#333;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.profile-menu a:hover{
+    background:#f4f6fb;
+    color:#002b78;
+    
+}
+
+.profile-menu.show{
+    display:block;
+}
+
+
 
 /* SIDEBAR */
 .sidebar{
@@ -537,6 +611,7 @@ border-bottom:1px solid #eee;
 overflow:hidden;
 text-overflow:ellipsis;
 white-spice:nowrap;
+text-align:center;
 }
 
 .badge{
@@ -640,6 +715,21 @@ background:#fff7e6;
 }
 
 </style>
+
+
+<script>
+const profile = document.querySelector('.profile');
+const menu = document.querySelector('.profile-menu');
+
+profile.addEventListener('click', function(e){
+    e.stopPropagation();
+    menu.classList.toggle('show');
+});
+
+document.addEventListener('click', function(){
+    menu.classList.remove('show');
+});
+</script>
 
 </body>
 </html>

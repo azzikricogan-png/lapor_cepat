@@ -10,21 +10,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </head>
 
 <body>
-
-<?php if(session()->getFlashdata('error')): ?>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-Swal.fire({
-    icon: 'error',
-    title: 'Login Gagal',
-    text: '<?= session()->getFlashdata('error') ?>',
-    confirmButtonColor: '#002b78',
-    confirmButtonText: 'OK'
-});
-
-</script>
-<?php endif; ?>
-
+    
 <div class="container">
 
     <!-- KIRI -->
@@ -55,6 +41,18 @@ Swal.fire({
         <div class="form-box">
 
             <h1>Masuk</h1>
+
+             <?php if(session()->getFlashdata('error')): ?>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Login Gagal',
+                    text: '<?= session()->getFlashdata('error') ?>',
+                    confirmButtonColor: '#002b78'
+                });
+                </script>
+                <?php endif; ?>
 
             <form action="<?= base_url('/login') ?>" method="post">
 
@@ -151,6 +149,16 @@ body{
     margin-bottom:15px;
     color: #000000;;
 
+}
+
+.alert-danger{
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 .right-content p{
