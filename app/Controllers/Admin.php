@@ -86,6 +86,30 @@ class Admin extends BaseController
         return view('admin/index', $data);
     }
 
+
+
+    public function dashboard()
+    {
+        $laporanModel = new \App\Models\LaporanModel();
+
+        $data['total'] = $laporanModel->countAllResults();
+
+        $data['menunggu'] = $laporanModel->where('status', 'Menunggu')->countAllResults();
+
+        $data['diproses'] = $laporanModel->where('status', 'Diproses')->countAllResults();
+
+        $data['selesai'] = $laporanModel->where('status', 'Selesai')->countAllResults();
+
+    // reset model (penting!)
+        $laporanModel = new \App\Models\LaporanModel();
+
+        $data['laporan'] = $laporanModel
+            ->orderBy('id_laporan', 'DESC')
+            ->findAll();
+
+        return view('admin/index', $data);
+    }
+
     public function laporan()
     {
         $laporanModel = new \App\Models\LaporanModel();

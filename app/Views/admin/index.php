@@ -11,48 +11,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <body>
 
-<?php
-$laporan = $laporan ?? [];
-$user = $user ?? [];
-$notifikasi = $notifikasi ?? [];
-?>
+<?= $this->include('admin/sidebar') ?>
 
-<!-- ================= SIDEBAR ================= -->
-<?php
-$current = uri_string();
-?>
-
-<div class="sidebar">
-
-    <div class="brand">
-        <img src="<?= base_url('img/logo.png') ?>">
-        <h2>LaporCepat</h2>
-        <small>ADMIN PANEL</small>
-    </div>
-
-    <a href="<?= base_url('admin') ?>" class="<?= ($current == 'admin') ? 'active' : '' ?>">
-        <i class="fa fa-home"></i> Dashboard
-    </a>
-
-    <a href="<?= base_url('admin/laporan') ?>" class="<?= (str_contains($current,'laporan')) ? 'active' : '' ?>">
-        <i class="fa fa-file"></i> Laporan
-    </a>
-
-    <a href="<?= base_url('admin/user') ?>" class="<?= (str_contains($current,'user')) ? 'active' : '' ?>">
-        <i class="fa fa-users"></i> User
-    </a>
-
-    <a href="<?= base_url('admin/notifikasi') ?>" class="<?= (str_contains($current,'notifikasi')) ? 'active' : '' ?>">
-        <i class="fa fa-bell"></i> Notifikasi
-    </a>
-
-    <a href="<?= base_url('logout') ?>"
-        class="logout"
-        onclick="return confirm('Apakah Anda yakin ingin keluar?')">
-        <i class="fa fa-right-from-bracket"></i> Keluar
-    </a>
-
-</div>
 <!-- ================= MAIN ================= -->
 <div class="main">
 
@@ -62,13 +22,7 @@ $current = uri_string();
 
     <div class="right">
 
-        <a href="<?= base_url('admin/notifikasi') ?>" class="notif">
-            <i class="fa fa-bell"></i>
 
-            <?php if($jumlah_notifikasi > 0): ?>
-                <span><?= $jumlah_notifikasi ?></span>
-            <?php endif; ?>
-        </a>
 
         <div class="profile">
 
@@ -78,7 +32,7 @@ $current = uri_string();
 
                 <span>
                     <?= session('nama') ?>
-                        <i class="fa fa-chevron-down"></i>
+        
                 </span>
 
             <div class="profile-menu">
@@ -274,39 +228,7 @@ $current = uri_string();
 </div>
 
 
-<!-- ================= NOTIFIKASI ================= -->
-<div class="section-box">
 
-    <h3>Notifikasi</h3>
-
-    <div class="notif-list">
-
-        <?php if (!empty($notifikasi)) { ?>
-
-            <?php foreach($notifikasi as $n) { ?>
-
-                <div class="notif-item <?= ($n['status_baca'] ?? 0) == 0 ? 'new' : '' ?>">
-
-                    <i class="fa fa-circle-info"></i>
-
-                    <div>
-                        <p><?= esc($n['pesan'] ?? '-') ?></p>
-                        <small><?= esc($n['created_at'] ?? '-') ?></small>
-                    </div>
-
-                </div>
-
-            <?php } ?>
-
-        <?php } else { ?>
-
-            <p>Tidak ada notifikasi</p>
-
-        <?php } ?>
-
-    </div>
-
-</div>
 <!-- ================= CSS (PAKAI PALING BAWAH) ================= -->
 <style>
 

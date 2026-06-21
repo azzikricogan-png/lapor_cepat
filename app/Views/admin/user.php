@@ -9,6 +9,9 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+
+
+
 <style>
 
 body{
@@ -60,26 +63,62 @@ body{
     border-radius:8px;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* penting biar kolom stabil */
 }
 
-th{
-    background:#002b78;
-    color:white;
-    padding:12px;
+
+th:first-child,
+td:first-child {
+    width: 50px;
+    text-align: center;
 }
 
-td{
-    padding:12px;
-    border-bottom:1px solid #eee;
+th:nth-child(2),
+td:nth-child(2) {
+    width: 160px;
 }
 
-.badge{
-    padding:5px 10px;
-    border-radius:20px;
-    font-size:12px;
+th:nth-child(3),
+td:nth-child(3) {
+    text-align: left;
+    width: 200px;
+
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle; /* ini kunci biar sejajar vertikal */
+    text-align: left;
+}
+
+/* khusus header biar rapi */
+th {
+    background: #002b78;
+    color: white;
+    font-weight: 600;
+}
+
+/* isi user info biar tidak “turun” */
+.user-info {
+    display: flex;
+    align-items: center; /* sudah benar, tapi pastikan ini aktif */
+    gap: 10px;
+}
+
+/* supaya tombol aksi juga sejajar tengah */
+td:last-child {
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* biar teks role tidak bikin beda tinggi */
+.badge {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .admin{
@@ -95,42 +134,157 @@ td{
     border:2px solid #ddd;
 }
 
+
+/* ------- */
+
 .modal{
     display:none;
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.5);
+    inset:0;
+    background:rgba(0,0,0,.55);
+    backdrop-filter: blur(6px);
     z-index:999;
 }
 
 .modal-content{
-    background:white;
-    width:400px;
-    max-width:90%;
-    padding:20px;
-    border-radius:12px;
+    width:420px;
+    max-width:92%;
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+    animation:pop .25s ease;
 }
 
-.close{
-    float:right;
-    font-size:25px;
-    cursor:pointer;
+@keyframes pop{
+    from{transform:translate(-50%,-45%) scale(.95); opacity:0;}
+    to{transform:translate(-50%,-50%) scale(1); opacity:1;}
 }
 
+/* HEADER */
+.modal-header{
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    height:120px;
+    position:relative;
+}
+
+/* FOTO */
 .modal-foto{
-    width:100px;
-    height:100px;
+    width:110px;
+    height:110px;
     border-radius:50%;
     object-fit:cover;
-    margin-bottom:15px;
+    border:5px solid #fff;
+    position:absolute;
+    left:50%;
+    bottom:-55px;
+    transform:translateX(-50%);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
+
+/* BODY */
+.modal-body{
+    padding:70px 22px 25px;
+}
+
+/* NAME */
+.modal-name{
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.modal-name h3{
+    margin:0;
+    font-size:22px;
+    color:#111827;
+}
+
+/* ROLE BADGE */
+.modal-role{
+    display:inline-block;
+    margin-top:6px;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+    background:#e0e7ff;
+    color:#1d4ed8;
+}
+
+/* INFO GRID */
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+}
+
+.info-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px;
+    border-radius:14px;
+    background:#f8fafc;
+    transition:.2s;
+}
+
+.info-item:hover{
+    transform:translateY(-2px);
+    background:#eef2ff;
+}
+
+.info-item i{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:#e0e7ff;
+    color:#1d4ed8;
+    font-size:16px;
+}
+
+.info-label{
+    font-size:12px;
+    color:#6b7280;
+}
+
+.info-value{
+    font-weight:600;
+    color:#111827;
+}
+
+/* CLOSE BUTTON */
+.close{
+    position:absolute;
+    top:10px;
+    right:14px;
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.2);
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.close:hover{
+    background:rgba(255,255,255,.35);
+    transform:rotate(90deg);
+}
+
+
+/* ------- */
+
 
 .petugas{
     background:#dbeafe;
@@ -176,10 +330,106 @@ td{
     gap:10px;
 }
 
+
+.layout{
+    display:flex;
+}
+
+/* sidebar kamu (sesuaikan kalau sudah ada class sidebar) */
+.sidebar{
+    width:250px;
+    position:sticky;
+    top:0;
+    height:100vh;
+}
+
+/* isi utama */
+.content{
+    margin-left:260px;
+    padding:20px;
+}
+
+.page-header{
+    background:#fff;
+    border-radius:16px;
+    padding:30px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.page-badge{
+    display:inline-block;
+    background:#e8f0ff;
+    color:#2563eb;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.page-header h1{
+    margin:0;
+    font-size:30px;
+    color:#1f2937;
+}
+
+.page-header p{
+    margin-top:10px;
+    color:#6b7280;
+    max-width:600px;
+    line-height:1.7;
+}
+
+.page-icon{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:#eef4ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.page-icon i{
+    font-size:50px;
+    color:#2563eb;
+}
+
 </style>
 
 </head>
 <body>
+
+
+<?= $this->include('admin/sidebar') ?>
+
+<div class="content">
+
+<div class="page-header">
+
+    <div class="page-info">
+        <span class="page-badge">
+            <i class="fa-solid fa-users"></i> Manajemen User
+        </span>
+
+        <h1>Data Pengguna</h1>
+
+        <p>
+            Kelola seluruh akun yang terdaftar pada sistem Lapor Cepat.
+            Cari pengguna, lihat detail profil, dan lakukan pengelolaan data.
+        </p>
+    </div>
+
+    <div class="page-icon">
+        <i class="fa-solid fa-users-gear"></i>
+    </div>
+
+</div>
+
 
 <div class="card">
 
@@ -317,18 +567,42 @@ td{
 
         <span class="close">&times;</span>
 
-        <center>
-
+        <div class="modal-header">
             <img id="modalFoto" class="modal-foto">
+        </div>
 
-            <h3 id="modalNama"></h3>
+        <div class="modal-body">
 
-        </center>
+            <div class="modal-name">
+                <h3 id="modalNama"></h3>
+                <span class="modal-role" id="modalRole"></span>
+            </div>
 
-        <p><b>Email:</b> <span id="modalEmail"></span></p>
-        <p><b>No HP:</b> <span id="modalHp"></span></p>
-        <p><b>Role:</b> <span id="modalRole"></span></p>
-        <p><b>Alamat:</b> <span id="modalAlamat"></span></p>
+            <div class="info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <div class="info-label">Email</div>
+                    <div class="info-value" id="modalEmail"></div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <div class="info-label">Nomor HP</div>
+                    <div class="info-value" id="modalHp"></div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <div class="info-label">Alamat</div>
+                    <div class="info-value" id="modalAlamat"></div>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
@@ -378,5 +652,6 @@ window.onclick = function(e){
 
 </script>
 
+</div> <!-- content -->
 </body>
 </html>

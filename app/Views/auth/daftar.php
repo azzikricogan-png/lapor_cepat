@@ -27,10 +27,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <div class="form-body">
 
 
-            <h1>Masuk Sekarang</h1>
+            <h1>Daftar</h1>
 
             <p>
-               Masuk ke akun Anda untuk melanjutkan menggunakan sistem LaporCepat.
+                Buat akun baru untuk mulai menggunakan
+                sistem Laporcepat.
             </p>
 
 
@@ -39,12 +40,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <div class="form-content">
 
 
+            <form action="<?= base_url('/register') ?>" method="post">
 
-            <form action="<?= base_url('/login') ?>" method="post">
+
+                 <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="nama" placeholder="Nama Lengkap" required>
+                </div>
 
                 <div class="input-group">
                     <i class="fa-solid fa-envelope"></i>
                     <input type="email" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" name="no_hp" placeholder="No HP" required>
                 </div>
 
                 <div class="input-group">
@@ -53,16 +64,30 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </div>
 
 
- 
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="konfirmasi_password" placeholder="Konfirmasi Password" required>
+                </div>
+
+
+                <div class="input-group">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <select name="role" required>
+                        <option value="">Pilih Role</option>
+                        <option value="user">Masyarakat</option>
+                        <option value="petugas">Petugas</option>
+                    </select>
+                </div>
+
             <button type="submit" class="btn-daftar">
-                Masuk
+                Daftar
             </button>
 
             </form>
 
             <div class="login-link">
-                Belum punya akun?
-                <a href="<?= base_url('register') ?>">Klik di sini !</a>
+                Sudah punya akun?
+                <a href="<?= base_url('login') ?>">Klik di sini !</a>
             </div>
 
         </div>
@@ -93,8 +118,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             cepat, dan transparan.
         </p>
 
-        <button class="btn-masuk" onclick="window.location.href='<?= base_url('register') ?>'">
-            Daftar
+        <button class="btn-masuk" onclick="window.location.href='<?= base_url('login') ?>'">
+            Masuk
         </button>
 
         <!-- ILUSTRASI -->
@@ -266,7 +291,7 @@ margin-top:50px;
 }
 
 form{
-    margin-top:258px;
+    margin-top:114px;
 }
 
 .input-group{

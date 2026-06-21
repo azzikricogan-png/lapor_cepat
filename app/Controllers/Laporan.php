@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\LaporanModel;
+use App\Models\TanggapanModel;
 
 class Laporan extends BaseController
 {
@@ -67,6 +68,7 @@ class Laporan extends BaseController
     public function detail($id)
     {
         $model = new LaporanModel();
+        $tanggapanModel = new TanggapanModel();
 
         $laporan = $model
             ->select('laporan.*, layanan_laporan.nama_layanan')
@@ -83,8 +85,16 @@ class Laporan extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
+         // 🔥 AMBIL TANGGAPAN DARI TABEL TERPISAH
+
+        $tanggapan =  $tanggapanModel
+            ->where('id_laporan', $id)
+            ->orderBy('created_at', 'DESC')
+            ->first();
+
         return view('laporan/detail', [
-            'laporan' => $laporan
+            'laporan' => $laporan,
+            'tanggapan' => $tanggapan
         ]);
     }
 

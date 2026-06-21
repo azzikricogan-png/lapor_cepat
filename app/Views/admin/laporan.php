@@ -17,11 +17,22 @@ body{
     padding:20px;
 }
 
+.content{
+    margin-left:260px;
+    padding:20px;
+}
+
+@media(max-width:900px){
+    .content{
+        margin-left:90px;
+    }
+}
+
 .card{
     background:white;
     padding:20px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
 }
 
 .header{
@@ -29,6 +40,14 @@ body{
     justify-content:space-between;
     align-items:center;
     margin-bottom:20px;
+    padding-bottom:15px;
+    border-bottom:1px solid #eee;
+}
+
+.header h2{
+    margin:0;
+    font-size:20px;
+    color:#1f2937;
 }
 
 .search{
@@ -73,32 +92,50 @@ body{
 
 table{
     width:100%;
-    border-collapse:collapse;
+    border-collapse:separate;
+    border-spacing:0 10px;
 }
 
-th{
+thead tr th{
     background:#002b78;
     color:white;
-    padding:12px;
+    padding:14px;
+    font-size:13px;
 }
 
-.modal-foto{
-    width:100%;
-    max-height:300px;
-    object-fit:cover;
-    border-radius:10px;
-    margin-bottom:15px;
+tbody tr{
+    background:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
+    border-radius:12px;
+    transition:.2s;
+}
+
+tbody tr:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
 td{
-    padding:12px;
-    border-bottom:1px solid #eee;
+    padding:14px;
+    border:none;
+}
+
+/* biar sudut tabel halus */
+tbody tr td:first-child{
+    border-top-left-radius:12px;
+    border-bottom-left-radius:12px;
+}
+
+tbody tr td:last-child{
+    border-top-right-radius:12px;
+    border-bottom-right-radius:12px;
 }
 
 .badge{
-    padding:5px 10px;
-    border-radius:20px;
+    padding:6px 12px;
+    border-radius:999px;
     font-size:12px;
+    font-weight:600;
 }
 
 .modal{
@@ -169,9 +206,94 @@ td{
     background:#16a34a;
 }
 
+
+.page-header{
+    background: linear-gradient(135deg, #002b78, #1d4ed8);
+    color: white;
+    padding: 25px 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.page-header h1{
+    margin: 0;
+    font-size: 22px;
+}
+
+.page-header p{
+    margin: 5px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.modal-title{
+    margin-bottom:15px;
+}
+
+.modal-title h2{
+    margin:0;
+    font-size:20px;
+    color:#1f2937;
+}
+
+.modal-title small{
+    color:#6b7280;
+}
+
+.modal-foto{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:15px;
+    background:#eee;
+}
+
+.detail-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    font-size:14px;
+}
+
+.detail-box div{
+    background:#f9fafb;
+    padding:10px;
+    border-radius:10px;
+}
+
+.detail-box b{
+    display:block;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:3px;
+}
+
+.detail-box .full{
+    grid-column:1 / -1;
+}
+
+.detail-box p{
+    margin:0;
+    color:#374151;
+    line-height:1.5;
+}
+
 </style>
 </head>
 <body>
+
+<?= $this->include('admin/sidebar') ?>
+
+
+
+<div class="content">
+
+<div class="page-header">
+    <h1>📋 Data Laporan</h1>
+    <p>Kelola semua laporan masuk, pantau status, dan lihat detail laporan dengan mudah.</p>
+</div>
 
 <div class="card">
 
@@ -281,8 +403,11 @@ td{
         <?php else: ?>
 
             <tr>
-                <td colspan="7" align="center">
-                    Tidak ada laporan
+                <td colspan="7" style="text-align:center; padding:40px;">
+                    <div style="color:#6b7280;">
+                        <i class="fa-solid fa-folder-open" style="font-size:40px;margin-bottom:10px;"></i>
+                        <p style="margin:0;">Belum ada laporan</p>
+                    </div>
                 </td>
             </tr>
 
@@ -300,42 +425,26 @@ td{
 
         <span class="close">&times;</span>
 
-            <img id="modalFoto"
-                class="modal-foto"
-                alt="Foto Laporan">
-
-            <p id="debugFoto"></p>
-
-        <h2>Detail Laporan</h2>
-
-        <div class="detail-item">
-            <b>Judul :</b>
-            <span id="modalJudul"></span>
+        <div class="modal-title">
+            <h2>Detail Laporan</h2>
+            <small>Informasi lengkap dari database</small>
         </div>
 
-        <div class="detail-item">
-            <b>Layanan :</b>
-            <span id="modalLayanan"></span>
-        </div>
+        <img id="modalFoto" class="modal-foto" alt="Foto Laporan">
 
-        <div class="detail-item">
-            <b>Lokasi :</b>
-            <span id="modalLokasi"></span>
-        </div>
+        <div class="detail-box">
 
-        <div class="detail-item">
-            <b>Status :</b>
-            <span id="modalStatus"></span>
-        </div>
+            <div><b>Judul:</b> <span id="modalJudul"></span></div>
+            <div><b>Layanan:</b> <span id="modalLayanan"></span></div>
+            <div><b>Lokasi:</b> <span id="modalLokasi"></span></div>
+            <div><b>Status:</b> <span id="modalStatus"></span></div>
+            <div><b>Tanggal:</b> <span id="modalTanggal"></span></div>
 
-        <div class="detail-item">
-            <b>Tanggal :</b>
-            <span id="modalTanggal"></span>
-        </div>
+            <div class="full">
+                <b>Deskripsi:</b>
+                <p id="modalDeskripsi"></p>
+            </div>
 
-        <div class="detail-item">
-            <b>Deskripsi :</b>
-            <p id="modalDeskripsi"></p>
         </div>
 
     </div>
@@ -351,28 +460,25 @@ document.querySelectorAll('.detail-btn').forEach(btn => {
     btn.addEventListener('click', function(){
 
         document.getElementById('modalFoto').src =
-            this.dataset.foto;
-
-        document.getElementById('debugFoto').innerText =
-        this.dataset.foto;
+            this.dataset.foto || '';
 
         document.getElementById('modalJudul').innerText =
-            this.dataset.judul;
+            this.dataset.judul || '-';
 
         document.getElementById('modalLayanan').innerText =
-            this.dataset.layanan;
+            this.dataset.layanan || '-';
 
         document.getElementById('modalLokasi').innerText =
-            this.dataset.lokasi;
+            this.dataset.lokasi || '-';
 
         document.getElementById('modalStatus').innerText =
-            this.dataset.status;
+            this.dataset.status || '-';
 
         document.getElementById('modalTanggal').innerText =
-            this.dataset.tanggal;
+            this.dataset.tanggal || '-';
 
         document.getElementById('modalDeskripsi').innerText =
-            this.dataset.deskripsi;
+            this.dataset.deskripsi || '-';
 
         modal.style.display = 'block';
 
@@ -391,6 +497,8 @@ window.onclick = function(e){
 }
 
 </script>
+
+</div> 
 
 </body>
 </html>

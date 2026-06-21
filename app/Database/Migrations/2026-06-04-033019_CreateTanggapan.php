@@ -46,7 +46,7 @@ class CreateTanggapan extends Migration
         );
 
         $this->forge->addForeignKey(
-            'id_petugas',
+            'id_user',
             'users',
             'id_user',
             'CASCADE',
