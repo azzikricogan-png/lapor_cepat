@@ -1,4 +1,4 @@
-<?= $this->include('home/header') ?>
+
 
 <!DOCTYPE html>
 <html lang="id">

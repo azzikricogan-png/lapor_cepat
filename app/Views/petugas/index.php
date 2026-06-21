@@ -22,7 +22,7 @@ $selesai  = $selesai ?? 0;
 
     <div class="brand">
         <img src="<?= base_url('img/logo.png') ?>">
-        <h2>LaporCepat</h2>
+        <h2>Lapor<span class="accent">Cepat</span></h2>
         <small>PETUGAS PANEL</small>
     </div>
 
@@ -90,7 +90,7 @@ margin-bottom:20px;
 }
 
 .sidebar .brand img{
-width:55px;
+width:70px;
 }
 
 .sidebar a{
@@ -115,7 +115,13 @@ margin-top:auto;
 background:#e74c3c;
 }
 
+.brand h2{
+    font-size:18px;
+}
 
+.brand .accent{
+    color:#ff9735;
+}
 
 /* ================= ACTION BAR ================= */
 .action-bar{

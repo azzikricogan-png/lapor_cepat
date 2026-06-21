@@ -156,7 +156,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                         <td><?= esc($l['judul'] ?? '-') ?></td>
 
                         <td><?= esc($l['nama_layanan'] ?? '-') ?></td>
-
                         <td><?= esc($l['lokasi'] ?? '-') ?></td>
 
                         <td>
@@ -411,6 +410,8 @@ align-items:center;
 justify-content:center;
 color:white;
 font-weight:bold;
+    position:relative;
+    transform:translateX(-2px);
 }
 
 /* STATS */

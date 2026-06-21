@@ -389,8 +389,8 @@ font-size:12px;
 }
 
 .btn-merah{
-    background:#800000;
-    color:#fff;
+    background: #ff0303;
+    color: #fff;
     padding:8px 14px;
     border-radius: 10px;
     text-decoration:none;

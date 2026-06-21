@@ -399,6 +399,53 @@ td:last-child {
     color:#2563eb;
 }
 
+
+.sidebar{
+width:240px;
+height:100vh;
+background:#002b78;
+color:white;
+padding:20px;
+position:fixed;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.brand{
+text-align:center;
+margin-bottom:20px;
+}
+
+.brand img{
+width:55px;
+}
+
+.brand h2{
+font-size:18px;
+}
+
+.brand small{
+opacity:.7;
+font-size:11px;
+}
+
+.sidebar a{
+color:white;
+text-decoration:none;
+padding:10px;
+border-radius:8px;
+display:flex;
+gap:10px;
+align-items:center;
+font-size:14px;
+transition:.3s;
+}
+
+.sidebar a:hover{
+background:#ff9735;
+}
+
 </style>
 
 </head>

@@ -92,8 +92,16 @@ body{
 
 table{
     width:100%;
-    border-collapse:separate;
+    border-collapse:collapse;
+    table-layout:auto;
     border-spacing:0 10px;
+
+}
+
+thead th,
+tbody td{
+    text-align:left;
+    vertical-align:middle;
 }
 
 thead tr th{
@@ -101,6 +109,9 @@ thead tr th{
     color:white;
     padding:14px;
     font-size:13px;
+    position:sticky;
+    top:0;
+    z-index:2;
 }
 
 tbody tr{
@@ -278,6 +289,53 @@ tbody tr td:last-child{
     margin:0;
     color:#374151;
     line-height:1.5;
+}
+
+
+.sidebar{
+width:240px;
+height:100vh;
+background:#002b78;
+color:white;
+padding:20px;
+position:fixed;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.brand{
+text-align:center;
+margin-bottom:20px;
+}
+
+.brand img{
+width:55px;
+}
+
+.brand h2{
+font-size:18px;
+}
+
+.brand small{
+opacity:.7;
+font-size:11px;
+}
+
+.sidebar a{
+color:white;
+text-decoration:none;
+padding:10px;
+border-radius:8px;
+display:flex;
+gap:10px;
+align-items:center;
+font-size:14px;
+transition:.3s;
+}
+
+.sidebar a:hover{
+background:#ff9735;
 }
 
 </style>

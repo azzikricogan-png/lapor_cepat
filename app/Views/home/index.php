@@ -94,12 +94,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     <div class="card-kategori">
 
         <div class="icon blue-bg">
-            <i class="fa-solid fa-droplet"></i>
+            <i class="fa-solid fa-bolt"></i>
         </div>
 
         <div>
-            <h3>Air Bersih</h3>
-            <p>Laporkan gangguan air atau layanan terkait</p>
+            <h3>Listrik</h3>
+            <p>Laporkan gangguan listrik untuk segera ditindaklanjuti.</p>
         </div>
 
     </div>
@@ -322,7 +322,7 @@ body{
 
     border-radius:50px;
 
-    background:rgb(255, 136, 0);
+    background:rgb(235, 125, 0);
 
     
 
